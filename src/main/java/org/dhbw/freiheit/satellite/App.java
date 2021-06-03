@@ -48,6 +48,7 @@ public class App
 		    	ci.printSetOfAllTVChannelsByLanguage("ger");
 		    	ci.printSatelliteArray();
 		    	ci.printSatelliteNameChannelsMap();
+		    	ci.printChannelSatellitesMap();
 	    	break;
 	    	case 4:
 		        // Konfiguration des Filterns

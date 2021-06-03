@@ -175,6 +175,36 @@ public class CollectInformation {
 	}
 	
 	/**
+	 * Schluessel ist Channel
+	 * Werte sind die Satelliten dieses Channels als Liste
+	 * @return Map der Schluessel-Werte-Paare
+	 */
+	public Map<Satellite.Channel, List<Satellite>> createChannelSatellitesMap()
+	{
+		Satellite[] satellites = createSatelliteArray();
+		Map<Satellite.Channel, List<Satellite>> channelMap = new TreeMap<>();
+		
+		for(Satellite sat : satellites)	
+		{
+			for(Satellite.Channel channel : sat.channels)
+			{
+			if(channelMap.containsKey(channel))
+				{
+					List<Satellite> satList = channelMap.get(channel);
+					satList.add(sat);
+				}
+				else
+				{
+					List<Satellite> satList = new ArrayList<>();
+					satList.add(sat);
+					channelMap.put(channel, satList);
+				}
+			}
+		}
+		return channelMap;
+	}
+	
+	/**
 	 * Schluessel ist Name des Satelliten
 	 * Werte sind Menge aller Channels dieses Satelliten
 	 * @return Map der Schluessel-Werte-Paare
@@ -219,6 +249,23 @@ public class CollectInformation {
 			for(Satellite.Channel c : setChannels)
 			{
 				System.out.printf("----------- %-3d %-15s %n", i++, c.name);
+			}
+		}
+	}
+	
+	public void printChannelSatellitesMap()
+	{
+		Map<Satellite.Channel, List<Satellite>> channelMap = createChannelSatellitesMap();
+
+		for(Map.Entry<Satellite.Channel, List<Satellite>> entry : channelMap.entrySet())
+		{
+			String nameChannel = entry.getKey().name;  // Name des Channels
+			List<Satellite> satList = entry.getValue();
+			System.out.println(nameChannel);
+			int i = 1;
+			for(Satellite s : satList)
+			{
+				System.out.printf("----------- %-3d %-15s %n", i++, s.sat);
 			}
 		}
 	}
