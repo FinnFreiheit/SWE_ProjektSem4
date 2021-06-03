@@ -5,13 +5,30 @@ import java.util.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class CollectInformation {
+public class CollectSatellitesAndChannelsInformation {
 	
 	JSONArray satellites;
 	
-	public CollectInformation(String file)
+	public CollectSatellitesAndChannelsInformation(String file)
 	{
 		this.satellites = ReadJSONFile.createJSONArrayListForAllSatellites(file);
+	}
+	
+	public Map<String, String> createLanguageMap()
+	{
+		Map<String, String> langMap = new TreeMap<>();
+		langMap.put("deutsch", "ger");
+		langMap.put("arabisch", "ara");
+		langMap.put("polnisch", "pol");
+		langMap.put("russisch", "rus");
+		langMap.put("englisch", "eng");
+		langMap.put("italienisch", "ita");
+		langMap.put("tuerkisch", "tur");
+		langMap.put("chinesisch", "chi");
+		langMap.put("spanisch", "spa");
+		langMap.put("franzoesisch", "fre");
+		
+		return langMap;
 	}
 	
 	public Set<String> createSetOfAllSatellites()
@@ -269,4 +286,32 @@ public class CollectInformation {
 			}
 		}
 	}
+	
+	public Set<String> createSetOfAllChannelAPids()
+	{
+		Set<String> channelsSet = new TreeSet<>();
+		for(Object sat : this.satellites)
+		{
+			JSONObject satellite = (JSONObject)sat;
+			JSONArray allChannelsOfSatellite = (JSONArray) satellite.get("channels");
+			for(Object channel : allChannelsOfSatellite)
+			{
+				JSONObject channelJSON = (JSONObject)channel;
+				String channelName = (String) channelJSON.get("a_pid");
+				channelsSet.add(channelName); 
+			}
+		}
+		return channelsSet;
+	}
+
+	public void printSetOfAllChannelAPids()
+	{
+		Set<String> channelsSet = this.createSetOfAllChannelAPids();
+		int i = 1;
+		for(String channelName : channelsSet)
+		{
+			System.out.printf("%-3d %-15s %n", i++, channelName);
+		}
+	}
+	
 }

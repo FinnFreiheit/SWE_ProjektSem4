@@ -28,6 +28,24 @@ public class Satellite implements Comparable<Satellite>{
         }
     }
     
+   	public String get(String property)
+	{
+		switch(property.toLowerCase())
+		{
+    		case "sat": return this.sat;
+    		case "pol": return this.pol;
+    		case "orbital": return this.orbital;
+    		case "freq": return this.freq;
+    		case "sym": return this.sym;
+		}
+		return "";
+	}
+   	
+   	public Channel[] getChannels()
+   	{
+   		return this.channels;
+   	}
+    
     class Channel implements Comparable<Channel>{
     	String a_pid;
     	String name;
@@ -53,11 +71,52 @@ public class Satellite implements Comparable<Satellite>{
             this.res = (String) channel.get("res");  
             this.packge = (String) channel.get("package");
     	}
+    	
+    	public String get(String property)
+    	{
+    		switch(property.toLowerCase())
+    		{
+	    		case "type": return this.type;
+	    		case "a_pid": return this.a_pid;
+	    		case "sid": return this.sid;
+	    		case "v_pid": return this.v_pid;
+	    		case "compression": return this.compression;
+	    		case "url": return this.url;
+	    		case "enc": return this.enc;
+	    		case "name": return this.name;
+	    		case "res": return this.res;
+	    		case "package": return this.packge;
+    		}
+    		return "";
+    	}
 
 		@Override
-		public int compareTo(Channel o) {
+		public int compareTo(Channel o) 
+		{
 			return this.name.compareTo(o.name);
 		}
+		
+		@Override
+		public boolean equals(Object o)
+		{
+			if(o==null) return false;
+			if(this==o) return true;
+			if(this.getClass()!=o.getClass()) return false;
+			
+			Channel channel =(Channel)o;
+			return this.name.equals(channel.name);
+		}
+		
+		@Override
+		public int hashCode()
+		{
+			return this.name.hashCode();
+		}
+		
+	    public void print()
+	    {
+	        System.out.printf("--- %-22s %-8s %-8s %-8s %n", this.name, this.compression, this.enc, this.a_pid);
+	    }
     }
     
     public void print()
@@ -71,7 +130,25 @@ public class Satellite implements Comparable<Satellite>{
     }
 
 	@Override
-	public int compareTo(Satellite o) {
+	public int compareTo(Satellite o) 
+	{
 		return this.sat.compareTo(o.sat);
+	}
+	
+	@Override
+	public boolean equals(Object o)
+	{
+		if(o==null) return false;
+		if(this==o) return true;
+		if(this.getClass()!=o.getClass()) return false;
+		
+		Satellite satellite =(Satellite)o;
+		return this.sat.equals(satellite.sat);
+	}
+	
+	@Override
+	public int hashCode()
+	{
+		return this.sat.hashCode();
 	}
 }

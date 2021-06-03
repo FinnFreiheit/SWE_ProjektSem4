@@ -1,5 +1,8 @@
 package org.dhbw.freiheit.satellite;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.swing.JFrame;
 
 public class App 
@@ -23,7 +26,7 @@ public class App
     
     public static void main( String[] args )
     {
-    	final int DEBUG = 3;
+    	final int DEBUG = 4;
     	
     	switch(DEBUG)
     	{
@@ -41,7 +44,7 @@ public class App
 	        break;
 	    	case 3:
 		        // CollectInformation --> unterschiedliche Konsolenausgaben
-		    	CollectInformation ci = new CollectInformation(JSON_FILE);
+		    	CollectSatellitesAndChannelsInformation ci = new CollectSatellitesAndChannelsInformation(JSON_FILE);
 		    	ci.printSetOfAllSatellites();
 		    	// ci.printSetOfAllChannels();
 		    	ci.printSetOfAllChannelsByLanguage("ger");
@@ -49,10 +52,20 @@ public class App
 		    	ci.printSatelliteArray();
 		    	ci.printSatelliteNameChannelsMap();
 		    	ci.printChannelSatellitesMap();
+		    	ci.printSetOfAllChannelAPids();
 	    	break;
 	    	case 4:
-		        // Konfiguration des Filterns
-		    	new ConfigurationWindow();
+	    		CollectSatellitesAndChannelsInformation ci1 = new CollectSatellitesAndChannelsInformation(JSON_FILE);
+		    	String property1 = "language";
+		    	String[] values1 = { "deutsch" };
+		    	ChannelsProperty cp1 = new ChannelsProperty(property1, values1, ci1);
+		    	cp1.print();
+		    	Map<Satellite.Channel, List<Satellite>> map1 = cp1.getChannelMap();
+		    	String property2 = "type";
+		    	String[] values2 = { "R" };
+		    	ChannelsProperty cp2 = new ChannelsProperty(map1, property2, values2, ci1);
+		    	cp2.print();
+		    	
 	    	break;
     	}
     }
