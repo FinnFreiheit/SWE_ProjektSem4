@@ -1,0 +1,7 @@
+[
+  {
+    "satellitesPath" : "resources/satellites.json",
+    "aggregat" : "aggregat1",
+    "output" : "console"
+  }
+]
