@@ -26,7 +26,7 @@ public class App
     
     public static void main( String[] args )
     {
-    	final int DEBUG = 4;
+    	final int DEBUG = 5;
     	
     	switch(DEBUG)
     	{
@@ -67,6 +67,10 @@ public class App
 		    	cp2.print();
 		    	
 	    	break;
+			case 5:
+				CollectConfigInformation temp = new CollectConfigInformation();
+				temp.creatConfigValues();
+				break;
     	}
     }
 }

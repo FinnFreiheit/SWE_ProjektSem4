@@ -29,8 +29,7 @@ public class ReadJSONFile {
         try (FileReader reader = new FileReader(file))
         {
             Object obj = jsonParser.parse(reader);
-            JSONArray satelliteList = (JSONArray) obj;
-            return satelliteList;
+            return (JSONArray) obj;
  
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -40,6 +39,25 @@ public class ReadJSONFile {
             e.printStackTrace();
         }
         
+        return null;
+    }
+
+    public static JSONArray createJSONArrayListFromConfig(String file)
+    {
+        JSONParser jsonParser = new JSONParser();
+
+        try (FileReader reader = new FileReader(file))
+        {
+            Object obj = jsonParser.parse(reader);
+            return (JSONArray) obj;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
     
