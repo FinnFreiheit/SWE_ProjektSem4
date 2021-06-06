@@ -26,7 +26,7 @@ public class App
     
     public static void main( String[] args )
     {
-    	final int DEBUG = 5;
+    	final int DEBUG = 4;
     	
     	switch(DEBUG)
     	{
