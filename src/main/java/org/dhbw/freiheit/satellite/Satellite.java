@@ -46,7 +46,7 @@ public class Satellite implements Comparable<Satellite>{
    		return this.channels;
    	}
     
-    class Channel implements Comparable<Channel>{
+    public class Channel implements Comparable<Channel>{
     	String a_pid;
     	String name;
     	String res;
