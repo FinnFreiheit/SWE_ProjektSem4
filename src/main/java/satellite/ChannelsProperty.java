@@ -1,9 +1,8 @@
 package satellite;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+
+
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ChannelsProperty 
@@ -146,18 +145,15 @@ public class ChannelsProperty
 		}
 		System.out.println();
 		int i = 1;
+		Set<Satellite> setSatellites = new TreeSet<>();
 		for(Map.Entry<Satellite.Channel, List<Satellite>> entry : this.channelMap.entrySet())
 		{
 			//Satellite.Channel channel = entry.getKey();
 			//System.out.printf("%3d ", i++);
 			//channel.print();
 			List<Satellite> satellites = entry.getValue();
-			Set<Satellite> setSatellites = null;
 
-
-
-
-			 for(Satellite satellite : satellites)
+			for(Satellite satellite : satellites)
 			 {
 				 setSatellites.add(satellite);
 			 }
@@ -169,6 +165,12 @@ public class ChannelsProperty
 
  */
 
+		}
+
+		System.out.println("Alle Satelliten : ");
+		for(Satellite satellite : setSatellites)
+		{
+			satellite.print();
 		}
 	}
 }

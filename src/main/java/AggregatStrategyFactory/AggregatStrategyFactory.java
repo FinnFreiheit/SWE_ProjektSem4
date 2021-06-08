@@ -20,7 +20,6 @@ public class AggregatStrategyFactory
 
         try
         {
-            System.out.println(information.getAggregat());
             return (AggregatStrategy) Class.forName(information.getAggregat()).getDeclaredConstructor().newInstance();
         } catch (IllegalAccessException | InstantiationException
                 | ClassNotFoundException | InvocationTargetException | NoSuchMethodException e)
