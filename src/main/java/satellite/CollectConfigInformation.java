@@ -14,19 +14,17 @@ public class CollectConfigInformation
     public CollectConfigInformation()
     {
         this.configJSONArray = ReadJSONFile.createJSONArrayListFromConfig("resources/config.json");
-    }
-
-    public void creatConfigValues()
-    {
         JSONObject configInfo = (JSONObject) this.configJSONArray.get(0);
         this.satellitesPath = (String)configInfo.get("satellitesPath");
         this.aggregat = (String)configInfo.get("aggregat");
         this.output = (String)configInfo.get("output");
     }
 
+
     public String getSatellitesPath()
     {
-        return satellitesPath;
+        System.out.println(this.satellitesPath);
+        return this.satellitesPath;
     }
 
     public String getAggregat()

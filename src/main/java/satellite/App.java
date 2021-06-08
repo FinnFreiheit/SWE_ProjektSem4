@@ -71,7 +71,6 @@ public class App
 	    	break;
 			case 5:
 				CollectConfigInformation temp = new CollectConfigInformation();
-				temp.creatConfigValues();
 				break;
 			case 6:
 				AggregatContext foo = new AggregatContext();
