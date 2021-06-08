@@ -1,4 +1,4 @@
-package org.dhbw.freiheit.satellite;
+package satellite;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

@@ -1,6 +1,6 @@
 package AggregatStrategyFactory;
 
-import org.dhbw.freiheit.satellite.Satellite;
+import satellite.Satellite;
 
 import java.util.List;
 import java.util.Map;

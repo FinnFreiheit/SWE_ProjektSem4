@@ -1,4 +1,4 @@
-package org.dhbw.freiheit.satellite;
+package org;
 
 import static org.junit.Assert.assertTrue;
 
