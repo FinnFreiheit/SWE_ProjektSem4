@@ -1,6 +1,6 @@
 package AggregatStrategyFactory;
 
-import org.dhbw.freiheit.satellite.CollectConfigInformation;
+import satellite.CollectConfigInformation;
 
 import java.lang.reflect.InvocationTargetException;
 

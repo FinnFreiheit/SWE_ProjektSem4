@@ -1,4 +1,4 @@
-package org.dhbw.freiheit.satellite;
+package satellite;
 
 import java.util.List;
 import java.util.Map;

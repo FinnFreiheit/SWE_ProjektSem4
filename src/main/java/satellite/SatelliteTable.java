@@ -1,4 +1,4 @@
-package org.dhbw.freiheit.satellite;
+package satellite;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;

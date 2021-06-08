@@ -1,4 +1,4 @@
-package org.dhbw.freiheit.satellite;
+package satellite;
 
 import java.io.IOException;
 import java.io.FileNotFoundException;
