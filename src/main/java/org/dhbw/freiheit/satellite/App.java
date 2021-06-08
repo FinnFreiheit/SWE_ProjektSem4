@@ -1,5 +1,7 @@
 package org.dhbw.freiheit.satellite;
 
+import AggregatStrategyFactory.AggregatContext;
+
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +28,7 @@ public class App
     
     public static void main( String[] args )
     {
-    	final int DEBUG = 4;
+    	final int DEBUG = 6;
     	
     	switch(DEBUG)
     	{
@@ -70,6 +72,10 @@ public class App
 			case 5:
 				CollectConfigInformation temp = new CollectConfigInformation();
 				temp.creatConfigValues();
+				break;
+			case 6:
+				AggregatContext foo = new AggregatContext();
+				foo.aggregatAnwenden();
 				break;
     	}
     }

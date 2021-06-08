@@ -1,7 +1,7 @@
 [
   {
     "satellitesPath" : "resources/satellites.json",
-    "aggregat" : "aggregat1",
+    "aggregat" : "AggregatStrategyFactory.DeutscheTVSender",
     "output" : "console"
   }
 ]
