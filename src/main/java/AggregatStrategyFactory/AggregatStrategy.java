@@ -11,5 +11,5 @@ import java.util.Map;
 * */
 public interface AggregatStrategy
 {
-    public Map<Satellite.Channel, List<Satellite>> executeAlgorithm();
+    public Map<Satellite, List<Satellite.Channel>> executeAlgorithm();
 }

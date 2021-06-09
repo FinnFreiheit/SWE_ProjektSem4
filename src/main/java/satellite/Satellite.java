@@ -3,6 +3,8 @@ package satellite;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.util.List;
+
 public class Satellite implements Comparable<Satellite>{
     String pol;
     String sat;
@@ -24,7 +26,7 @@ public class Satellite implements Comparable<Satellite>{
         for(Object channel : channelArray)
         {
         	JSONObject channelJSON = (JSONObject)channel;
-        	this.channels[index++] = new Channel(channelJSON);
+        	this.channels[index++] = new Channel(channelJSON, this);
         }
     }
     
@@ -57,8 +59,9 @@ public class Satellite implements Comparable<Satellite>{
     	String type;
     	String enc;
     	String compression;
+    	Satellite satellite;
     	
-    	Channel(JSONObject channel)
+    	Channel(JSONObject channel, Satellite satellite)
     	{
             this.type = (String) channel.get("type");   
             this.a_pid = (String) channel.get("a_pid");  
@@ -70,6 +73,7 @@ public class Satellite implements Comparable<Satellite>{
             this.name = (String) channel.get("name");   
             this.res = (String) channel.get("res");  
             this.packge = (String) channel.get("package");
+            this.satellite = satellite;
     	}
     	
     	public String get(String property)
@@ -118,7 +122,17 @@ public class Satellite implements Comparable<Satellite>{
 	        System.out.printf("--- %-22s %-8s %-8s %-8s %n", this.name, this.compression, this.enc, this.a_pid);
 	    }
     }
-    
+
+	public void print(List<Channel> channelList)
+	{
+		System.out.printf("%n%-14s %-10s %-6s %-8s %-8s %n",
+						  this.sat, this.orbital, this.pol, this.freq, this.sym);
+		for(Channel c : channelList)
+		{
+			System.out.printf("---------- %-22s %-8s %-8s %-8s %n", c.name, c.compression, c.enc, c.a_pid);
+		}
+	}
+
     public void print()
     {
         System.out.printf("%n%-14s %-10s %-6s %-8s %-8s %n", 
@@ -143,7 +157,11 @@ public class Satellite implements Comparable<Satellite>{
 		if(this.getClass()!=o.getClass()) return false;
 		
 		Satellite satellite =(Satellite)o;
-		return this.sat.equals(satellite.sat);
+		return this.sat.equals(satellite.sat) &&
+				this.freq.equals(satellite.freq) &&
+				this.orbital.equals(satellite.orbital) &&
+				this.pol.equals(satellite.pol) &&
+				this.sym.equals(satellite.sym);
 	}
 	
 	@Override

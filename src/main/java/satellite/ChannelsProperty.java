@@ -10,7 +10,7 @@ public class ChannelsProperty
 	String property;
 	String[] values;
 	Map<Satellite.Channel, List<Satellite>> channelMap;
-	List<Satellite> list;
+	Map<Satellite.Channel, List<Satellite>> channelMapNewNew;
 	
 	public ChannelsProperty(String property, String[] values, CollectSatellitesAndChannelsInformation ci)
 	{
@@ -111,6 +111,7 @@ public class ChannelsProperty
 				}
 			}
 		}
+		this.channelMapNewNew = channelMapNew;
 		return channelMapNew;
 	}
 	
@@ -126,10 +127,11 @@ public class ChannelsProperty
 		}
 		return clone;
 	}
+
 	
 	public void print()
 	{
-		System.out.printf("%d Channels ", this.channelMap.size());
+		System.out.printf("%d Channels ", this.channelMapNewNew.size());
 		if(this.property.toLowerCase().equals("language"))
 		{
 			System.out.println("senden in den Sprachen");
@@ -146,7 +148,7 @@ public class ChannelsProperty
 		System.out.println();
 		int i = 1;
 		Set<Satellite> setSatellites = new TreeSet<>();
-		for(Map.Entry<Satellite.Channel, List<Satellite>> entry : this.channelMap.entrySet())
+		for(Map.Entry<Satellite.Channel, List<Satellite>> entry : this.channelMapNewNew.entrySet())
 		{
 			//Satellite.Channel channel = entry.getKey();
 			//System.out.printf("%3d ", i++);
@@ -157,13 +159,6 @@ public class ChannelsProperty
 			 {
 				 setSatellites.add(satellite);
 			 }
-/*
-			 for(Satellite satellite : list)
-			 {
-			 	satellite.print();
-			 }
-
- */
 
 		}
 

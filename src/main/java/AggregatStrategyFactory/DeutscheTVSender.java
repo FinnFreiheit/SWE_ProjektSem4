@@ -1,9 +1,6 @@
 package AggregatStrategyFactory;
 
-import satellite.ChannelsProperty;
-import satellite.CollectConfigInformation;
-import satellite.CollectSatellitesAndChannelsInformation;
-import satellite.Satellite;
+import satellite.*;
 
 import java.util.List;
 import java.util.Map;
@@ -19,22 +16,30 @@ public class DeutscheTVSender extends SuperAggregat implements AggregatStrategy
     }
 
     @Override
-    public Map<Satellite.Channel, List<Satellite>> executeAlgorithm()
+    public Map<Satellite, List<Satellite.Channel>> executeAlgorithm()
     {
         CollectSatellitesAndChannelsInformation satellitesAndChannelsInformation = getSatellitesAndChannelsInfo();
 
         String firstPropertyLanguage = "language";
         String[] firstValuesGerman = { "deutsch" };
-        ChannelsProperty firstChannelsProperty = new ChannelsProperty(firstPropertyLanguage, firstValuesGerman,
-                                                  satellitesAndChannelsInformation);
+        SatelliteProperty firstSatelliteProperty = new SatelliteProperty(firstPropertyLanguage, firstValuesGerman,
+                                                                       satellitesAndChannelsInformation);
 
-        Map<Satellite.Channel, List<Satellite>> filteredSatellitesAndChannelsInfo = firstChannelsProperty.getChannelMap();
-        String secondPropertyType = "type";
-        String[] secondValuesTv = { "TV" };
-        ChannelsProperty secondChannelsProperty = new ChannelsProperty(filteredSatellitesAndChannelsInfo,secondPropertyType,
+        firstSatelliteProperty.print();
+
+        System.out.println("____________________________________________________________");
+        System.out.println("____________________________________________________________");
+        System.out.println("____________________________________________________________");
+        System.out.println("____________________________________________________________");
+
+        Map<Satellite, List<Satellite.Channel>> filteredSatellitesAndChannelsInfo = firstSatelliteProperty.getSatelliteMap();
+        String secondPropertyType = "language";
+        String[] secondValuesTv = { "deutsch" };
+        SatelliteProperty secondChannelsProperty = new SatelliteProperty(filteredSatellitesAndChannelsInfo,
+                                                                    secondPropertyType,
                                                     secondValuesTv,satellitesAndChannelsInformation);
         secondChannelsProperty.print();
 
-        return secondChannelsProperty.getChannelMap();
+        return secondChannelsProperty.getSatelliteMap();
     }
 }
