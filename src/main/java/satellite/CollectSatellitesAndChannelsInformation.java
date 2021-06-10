@@ -188,6 +188,7 @@ public class CollectSatellitesAndChannelsInformation {
 			}
 			satMap.put(sat, channelList);
 		}
+
 		return satMap;
 	}
 	

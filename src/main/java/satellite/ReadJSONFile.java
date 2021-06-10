@@ -29,6 +29,11 @@ public class ReadJSONFile {
         try (FileReader reader = new FileReader(file))
         {
             Object obj = jsonParser.parse(reader);
+            JSONArray temp = (JSONArray) obj;
+            for (Object o : temp)
+            {
+                System.out.println(o);
+            }
             return (JSONArray) obj;
  
         } catch (FileNotFoundException e) {
