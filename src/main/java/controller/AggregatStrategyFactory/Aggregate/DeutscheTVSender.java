@@ -1,6 +1,11 @@
-package AggregatStrategyFactory;
+package controller.AggregatStrategyFactory.Aggregate;
 
-import satellite.*;
+import controller.AggregatStrategyFactory.AggregatStrategy;
+import controller.AggregatStrategyFactory.SuperAggregat;
+import model.CollectSatellitesAndChannelsInformation;
+import model.Satellite;
+import model.SatelliteProperty;
+import model.*;
 
 import java.util.List;
 import java.util.Map;
@@ -23,7 +28,7 @@ public class DeutscheTVSender extends SuperAggregat implements AggregatStrategy
         String firstPropertyLanguage = "language";
         String[] firstValuesGerman = { "deutsch" };
         SatelliteProperty firstSatelliteProperty = new SatelliteProperty(firstPropertyLanguage, firstValuesGerman,
-                                                                       satellitesAndChannelsInformation);
+                                                                         satellitesAndChannelsInformation);
 
 
         firstSatelliteProperty.print();

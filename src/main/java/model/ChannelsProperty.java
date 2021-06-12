@@ -1,9 +1,8 @@
-package satellite;
+package model;
 
 
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class ChannelsProperty 
 {

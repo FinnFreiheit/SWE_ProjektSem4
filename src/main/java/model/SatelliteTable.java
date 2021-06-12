@@ -1,4 +1,4 @@
-package satellite;
+package model;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;

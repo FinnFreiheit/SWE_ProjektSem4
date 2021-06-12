@@ -1,6 +1,6 @@
-package AggregatStrategyFactory;
+package controller.AggregatStrategyFactory;
 
-import satellite.CollectConfigInformation;
+import model.CollectConfigInformation;
 
 import java.lang.reflect.InvocationTargetException;
 

@@ -1,7 +1,7 @@
-package AggregatStrategyFactory;
+package controller.AggregatStrategyFactory;
 
-import satellite.CollectConfigInformation;
-import satellite.CollectSatellitesAndChannelsInformation;
+import model.CollectConfigInformation;
+import model.CollectSatellitesAndChannelsInformation;
 
 public class SuperAggregat
 {

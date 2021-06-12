@@ -1,6 +1,7 @@
-package satellite;
+package model;
 
-import AggregatStrategyFactory.AggregatContext;
+import controller.AggregatStrategyFactory.AggregatContext;
+import view.WriteJSON;
 
 import java.util.List;
 import java.util.Map;
@@ -74,7 +75,11 @@ public class App
 				break;
 			case 6:
 				AggregatContext foo = new AggregatContext();
-				foo.aggregatAnwenden();
+
+
+				WriteJSON writer = new WriteJSON(foo.aggregatAnwenden());
+				writer.writeToFile();
+
 				break;
     	}
     }

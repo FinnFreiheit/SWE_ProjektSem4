@@ -1,4 +1,4 @@
-package satellite;
+package model;
 
 import java.util.*;
 

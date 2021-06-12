@@ -1,4 +1,4 @@
-package satellite;
+package model;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -26,7 +26,7 @@ public class ConfigurationWindow extends JFrame
         
         JPanel oben = new JPanel();
         oben.setLayout(new GridLayout(5,3));
-        JLabel lab1 = new JLabel("Filter satellite name ");
+        JLabel lab1 = new JLabel("Filter model.satellite name ");
         JCheckBox cb1 = new JCheckBox();
         JTextField tf1 = new JTextField();
         

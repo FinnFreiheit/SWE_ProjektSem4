@@ -1,6 +1,6 @@
-package AggregatStrategyFactory;
+package controller.AggregatStrategyFactory;
 
-import satellite.Satellite;
+import model.Satellite;
 
 import java.util.List;
 import java.util.Map;

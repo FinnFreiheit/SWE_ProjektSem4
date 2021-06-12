@@ -1,4 +1,4 @@
-package satellite;
+package model;
 
 import java.io.IOException;
 import java.io.FileNotFoundException;
@@ -13,7 +13,7 @@ public class ReadJSONFile {
 
 	/**
 	 * erzeugt ein JSONArray aus allen Satelliten
-	 * die Datei file (satellite.json) wird eingelesen
+	 * die Datei file (model.satellite.json) wird eingelesen
 	 * Array aus allen Satelliten erzeugt, wobei ein Satellite folgende Form hat:
 	 * {"channels":[{"res":"SD","package":" ","name":"Hope Channel Fiji","v_pid":"3005","enc":"Verimatrix ","type":"TV","compression":"MPEG-4","url":"","a_pid":"3006  eng","sid":"1510"},
 	 * {"res":"SD","package":" ","name":"Channel 2 (Fiji)","v_pid":"2101","enc":"Verimatrix ","type":"TV","compression":"MPEG-4","url":"","a_pid":"3001  ","sid":"2405"}]
@@ -161,7 +161,7 @@ public class ReadJSONFile {
         data[3] =  satellite.get("sym"); 
         data[4] =  satellite.get("pol");
         
-        // satellite.get("channels") nicht beachtet (selbst ein Array)
+        // model.satellite.get("channels") nicht beachtet (selbst ein Array)
         
         return data;
     }
