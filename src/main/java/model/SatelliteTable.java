@@ -9,7 +9,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
  
 public class SatelliteTable extends JPanel {
-    private boolean DEBUG = false;
+    private boolean DEBUG = true;
     private Object[][] data;
  
     public SatelliteTable(Object[][] data) {

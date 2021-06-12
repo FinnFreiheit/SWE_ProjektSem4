@@ -16,6 +16,7 @@ public class WriteJSON
     private static FileWriter file;
     Set<Satellite> setSatellites;
 
+
     public WriteJSON(Map<Satellite, List<Satellite.Channel>> sortedList)
     {
         this.sortedList = sortedList;
@@ -29,12 +30,33 @@ public class WriteJSON
         try
         {
             file = new FileWriter("resources/temp.json");
-            file.write(this.setSatellites.toString());
+            file.write(maptoString());
 
         } catch (IOException e)
         {
             e.printStackTrace();
         }
+    }
+
+    public String maptoString()
+    {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("[");
+        for(Map.Entry<Satellite, List<Satellite.Channel>> entry : this.sortedList.entrySet())
+        {
+            Satellite sat = entry.getKey();
+            stringBuilder.append(sat.toString());
+            stringBuilder.append("[");
+            for(Satellite.Channel channel: entry.getValue())
+            {
+                stringBuilder.append(channel.toString());
+            }
+            stringBuilder.deleteCharAt(stringBuilder.length()-1);
+            stringBuilder.append("]");
+            stringBuilder.append("\n\t},");
+        }
+        stringBuilder.append("]");
+        return stringBuilder.toString();
     }
 
 
