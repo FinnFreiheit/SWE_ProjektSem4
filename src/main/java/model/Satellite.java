@@ -81,10 +81,10 @@ public class Satellite implements Comparable<Satellite>{
 		@Override
 		public String toString()
 		{
-			return "Channel{" + "a_pid='" + a_pid + '\'' + ", name='" + name + '\'' + ", res='" + res + '\'' +
-					", url='" + url + '\'' + ", sid='" + sid + '\'' + ", v_pid='" + v_pid + '\'' + ", packge='" +
-					packge + '\'' + ", type='" + type + '\'' + ", enc='" + enc + '\'' + ", compression='" +
-					compression + '\'' + ",";
+			return "\n\t\t\t{\n" + "\t\t\t\t\"a_pid\": \"" + a_pid + '\"' + ",\n\t\t\t\t\"name\": \"" + name + '\"' + ",\n\t\t\t\t\"res\": \"" + res + '\"' +
+					",\n\t\t\t\t\"url\": \"" + url + '\"' + ",\n\t\t\t\t\"sid\": \"" + sid + '\"' + ",\n\t\t\t\t\"v_pid\": \"" + v_pid + '\"' +
+					",\n\t\t\t\t\"packge\": \"" +packge + '\"' + ",\n\t\t\t\t\"type\": \"" + type + '\"' + ",\n\t\t\t\t\"enc\": \"" + enc + '\"' +
+					",\n\t\t\t\t\"compression\": \"" +compression + '\"' + "\n\t\t\t}";
 		}
 
 		public String get(String property)
@@ -192,9 +192,9 @@ public class Satellite implements Comparable<Satellite>{
 	@Override
 	public String toString()
 	{
-		return "{"
-				+ "\"pol\":\"" + pol +
-				'\"' + ",\n\"sat\":\"" + sat + '\"' + ",\n\"orbital\":\"" + orbital + '\"' +
-				",\n\"freq\":\"" + freq + '\"' + ",\n\"sym\":\"" + sym + '\"' + ",\n\"channels\":\"" + Arrays.toString(channels) + '}';
+		return "\n\t{\n"
+				+ "\t\t\"pol\": \"" + pol +
+				'\"' + ",\n\t\t\"sat\": \"" + sat + '\"' + ",\n\t\t\"orbital\": \"" + orbital + '\"' +
+				",\n\t\t\"freq\": \"" + freq + '\"' + ",\n\t\t\"sym\": \"" + sym + '\"' + ",\n\t\t\"channels\": " + Arrays.toString(channels) + "\n\t}";
 	}
 }
