@@ -3,6 +3,7 @@ package model;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -76,8 +77,17 @@ public class Satellite implements Comparable<Satellite>{
             this.packge = (String) channel.get("package");
             this.satellite = satellite;
     	}
-    	
-    	public String get(String property)
+
+		@Override
+		public String toString()
+		{
+			return "Channel{" + "a_pid='" + a_pid + '\'' + ", name='" + name + '\'' + ", res='" + res + '\'' +
+					", url='" + url + '\'' + ", sid='" + sid + '\'' + ", v_pid='" + v_pid + '\'' + ", packge='" +
+					packge + '\'' + ", type='" + type + '\'' + ", enc='" + enc + '\'' + ", compression='" +
+					compression + '\'' + ",";
+		}
+
+		public String get(String property)
     	{
     		switch(property.toLowerCase())
     		{
@@ -179,6 +189,12 @@ public class Satellite implements Comparable<Satellite>{
 		return Objects.hash(pol, sat, orbital, freq, sym);
 	}
 
-
-
+	@Override
+	public String toString()
+	{
+		return "{"
+				+ "\"pol\":\"" + pol +
+				'\"' + ",\n\"sat\":\"" + sat + '\"' + ",\n\"orbital\":\"" + orbital + '\"' +
+				",\n\"freq\":\"" + freq + '\"' + ",\n\"sym\":\"" + sym + '\"' + ",\n\"channels\":\"" + Arrays.toString(channels) + '}';
+	}
 }
