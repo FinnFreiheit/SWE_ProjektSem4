@@ -28,21 +28,9 @@ public class SatelliteProperty
     {
         Map<Satellite, List<Satellite.Channel>> satelliteMapNew = new TreeMap<>();
 
-        satelliteMapAll.forEach((k,v)->
-                                {
-                                    if(k.sat.equals("Astra 1L")){
-                                        System.out.println("Treffer neu");
-                                    }
-                                });
-
-
         for(Map.Entry<Satellite,List<Satellite.Channel>> entry : satelliteMapAll.entrySet())
         {
             Satellite satellite = entry.getKey();
-            if(satellite.sat.equals("Astra 1L"))
-            {
-                System.out.println("moin");
-            }
             List<Satellite.Channel> channelList = entry.getValue();
             List<Satellite.Channel> channelListTemp = new ArrayList<>();
 

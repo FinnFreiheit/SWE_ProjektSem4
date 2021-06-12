@@ -178,17 +178,12 @@ public class CollectSatellitesAndChannelsInformation {
 	{
 		Satellite[] satellites = createSatelliteArray();
 		Map<Satellite, List<Satellite.Channel>> satMap = new TreeMap<>();
-		
 		for(Satellite sat : satellites)
 		{
 			List<Satellite.Channel> channelList = new ArrayList<>();
-			for(Satellite.Channel c : sat.channels)
-			{
-				channelList.add(c);
-			}
+			channelList.addAll(Arrays.asList(sat.channels));
 			satMap.put(sat, channelList);
 		}
-
 		return satMap;
 	}
 	

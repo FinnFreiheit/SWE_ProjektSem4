@@ -4,6 +4,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Satellite implements Comparable<Satellite>{
     String pol;
@@ -146,27 +147,38 @@ public class Satellite implements Comparable<Satellite>{
 	@Override
 	public int compareTo(Satellite o) 
 	{
-		return this.sat.compareTo(o.sat);
+		if(this.sat.equals(o.sat))
+		{
+			if(this.sym.equals(o.sym))
+			{
+				if(this.pol.equals(o.pol))
+				{
+					if(this.orbital.equals(o.orbital))
+					{
+						return this.freq.compareTo(o.freq);
+					} else return this.orbital.compareTo(o.orbital);
+				} else return this.pol.compareTo(o.pol);
+			} else return this.sym.compareTo(o.sym);
+		} else return this.sat.compareTo(o.sat);
 	}
-	
+
+
 	@Override
 	public boolean equals(Object o)
 	{
-		if(o==null) return false;
-		if(this==o) return true;
-		if(this.getClass()!=o.getClass()) return false;
-		
-		Satellite satellite =(Satellite)o;
-		return this.sat.equals(satellite.sat) &&
-				this.freq.equals(satellite.freq) &&
-				this.orbital.equals(satellite.orbital) &&
-				this.pol.equals(satellite.pol) &&
-				this.sym.equals(satellite.sym);
+		if (this == o) return true;
+		if (!(o instanceof Satellite)) return false;
+		Satellite satellite = (Satellite) o;
+		return pol.equals(satellite.pol) && sat.equals(satellite.sat) && orbital.equals(satellite.orbital) &&
+				freq.equals(satellite.freq) && sym.equals(satellite.sym);
 	}
-	
+
 	@Override
 	public int hashCode()
 	{
-		return this.sat.hashCode();
+		return Objects.hash(pol, sat, orbital, freq, sym);
 	}
+
+
+
 }

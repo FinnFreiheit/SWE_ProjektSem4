@@ -26,7 +26,7 @@ public class DeutscheTVSender extends SuperAggregat implements AggregatStrategy
                                                                        satellitesAndChannelsInformation);
 
 
-        //firstSatelliteProperty.print();
+        firstSatelliteProperty.print();
 
         System.out.println("____________________________________________________________");
         System.out.println("____________________________________________________________");
@@ -39,7 +39,7 @@ public class DeutscheTVSender extends SuperAggregat implements AggregatStrategy
         SatelliteProperty secondChannelsProperty = new SatelliteProperty(filteredSatellitesAndChannelsInfo,
                                                                     secondPropertyType,
                                                     secondValuesTv,satellitesAndChannelsInformation);
-        //secondChannelsProperty.print();
+        secondChannelsProperty.print();
 
         return secondChannelsProperty.getSatelliteMap();
     }
