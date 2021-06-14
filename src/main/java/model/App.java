@@ -1,6 +1,7 @@
 package model;
 
 import controller.AggregatStrategyFactory.AggregatContext;
+import view.GUI;
 import view.WriteJSON;
 
 import java.util.List;
@@ -79,6 +80,7 @@ public class App
 
 				WriteJSON writer = new WriteJSON(foo.aggregatAnwenden());
 				writer.writeToFile();
+				GUI g = new GUI(foo.aggregatAnwenden());
 
 				break;
     	}

@@ -45,7 +45,6 @@ public class DeutscheTVSender extends SuperAggregat implements AggregatStrategy
                                                                     secondPropertyType,
                                                     secondValuesTv,satellitesAndChannelsInformation);
         //secondChannelsProperty.print();
-
         return secondChannelsProperty.getSatelliteMap();
     }
 }
