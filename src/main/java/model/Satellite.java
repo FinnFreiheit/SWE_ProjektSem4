@@ -192,9 +192,8 @@ public class Satellite implements Comparable<Satellite>{
 	@Override
 	public String toString()
 	{
-		return "\n\t{\n"
-				+ "\t\t\"pol\": \"" + pol +
-				'\"' + ",\n\t\t\"sat\": \"" + sat + '\"' + ",\n\t\t\"orbital\": \"" + orbital + '\"' +
-				",\n\t\t\"freq\": \"" + freq + '\"' + ",\n\t\t\"sym\": \"" + sym + '\"' + ",\n\t\t\"channels\": " + Arrays.toString(channels) + "\n\t}";
+		return "\n\t{\n" + "\t\t\"pol\": \"" + pol +'\"' + ",\n\t\t\"sat\": \"" + sat + '\"' + ",\n\t\t\"orbital\": \""
+				+ orbital + '\"' +",\n\t\t\"freq\": \"" + freq + '\"' + ",\n\t\t\"sym\": \"" + sym + '\"'
+				+ ",\n\t\t\"channels\": " + Arrays.toString(channels) + "\n\t}";
 	}
 }
