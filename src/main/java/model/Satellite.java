@@ -84,7 +84,7 @@ public class Satellite implements Comparable<Satellite>{
 			return "\n\t\t\t{\n" + "\t\t\t\t\"a_pid\": \"" + a_pid + '\"' + ",\n\t\t\t\t\"name\": \"" + name + '\"' + ",\n\t\t\t\t\"res\": \"" + res + '\"' +
 					",\n\t\t\t\t\"url\": \"" + url + '\"' + ",\n\t\t\t\t\"sid\": \"" + sid + '\"' + ",\n\t\t\t\t\"v_pid\": \"" + v_pid + '\"' +
 					",\n\t\t\t\t\"packge\": \"" +packge + '\"' + ",\n\t\t\t\t\"type\": \"" + type + '\"' + ",\n\t\t\t\t\"enc\": \"" + enc + '\"' +
-					",\n\t\t\t\t\"compression\": \"" +compression + '\"' + "\n\t\t\t}";
+					",\n\t\t\t\t\"compression\": \"" +compression + '\"' + "\n\t\t\t},";
 		}
 
 		public String get(String property)
@@ -189,11 +189,13 @@ public class Satellite implements Comparable<Satellite>{
 		return Objects.hash(pol, sat, orbital, freq, sym);
 	}
 
-	@Override
+
 	public String toString()
 	{
 		return "\n\t{\n" + "\t\t\"pol\": \"" + pol +'\"' + ",\n\t\t\"sat\": \"" + sat + '\"' + ",\n\t\t\"orbital\": \""
 				+ orbital + '\"' +",\n\t\t\"freq\": \"" + freq + '\"' + ",\n\t\t\"sym\": \"" + sym + '\"'
-				+ ",\n\t\t\"channels\": " + Arrays.toString(channels) + "\n\t}";
+				+ ",\n\t\t\"channels\": ";
+
+		//" + Arrays.toString(channels) + "\n\t}
 	}
 }
