@@ -33,11 +33,6 @@ public class DeutscheTVSender extends SuperAggregat implements AggregatStrategy
 
         //firstSatelliteProperty.print();
 
-        System.out.println("____________________________________________________________");
-        System.out.println("____________________________________________________________");
-        System.out.println("____________________________________________________________");
-        System.out.println("____________________________________________________________");
-
         Map<Satellite, List<Satellite.Channel>> filteredSatellitesAndChannelsInfo = firstSatelliteProperty.getSatelliteMap();
         String secondPropertyType = "type";
         String[] secondValuesTv = { "TV" };
