@@ -2,18 +2,29 @@ package controller.AggregatStrategyFactory;
 
 import model.CollectConfigInformation;
 import model.CollectSatellitesAndChannelsInformation;
+import model.Satellite;
+import model.SatelliteProperty;
 
-public class SuperAggregat
+import java.util.List;
+import java.util.Map;
+
+public abstract class SuperAggregat
 {
     private CollectConfigInformation information;
     private CollectSatellitesAndChannelsInformation satellitesAndChannelsInfo;
 
 
-    public SuperAggregat()
+    private SatelliteProperty satelliteProperty;
+
+
+    public SuperAggregat(String Property, String[] Value)
     {
-        this.information =  new CollectConfigInformation();
-        this.satellitesAndChannelsInfo =  new CollectSatellitesAndChannelsInformation(
-            this.information.getSatellitesPath());
+        this.information = new CollectConfigInformation();
+        this.satellitesAndChannelsInfo =
+                new CollectSatellitesAndChannelsInformation(this.information.getSatellitesPath());
+
+        this.firstFilter(Property, Value);
+
     }
 
     public CollectConfigInformation getInformation()
@@ -21,8 +32,25 @@ public class SuperAggregat
         return information;
     }
 
-    public CollectSatellitesAndChannelsInformation getSatellitesAndChannelsInfo()
+
+    private void firstFilter(String Property, String[] Value)
     {
-        return satellitesAndChannelsInfo;
+
+        this.satelliteProperty = new SatelliteProperty(Property, Value, this.satellitesAndChannelsInfo);
+    }
+
+
+    public void filter(String Property, String[] Value)
+    {
+        Map<Satellite, List<Satellite.Channel>> filteredSatellitesAndChannelsInfo =
+                this.satelliteProperty.getSatelliteMap();
+        this.satelliteProperty = new SatelliteProperty(filteredSatellitesAndChannelsInfo, Property, Value,
+                                                       this.satellitesAndChannelsInfo);
+
+    }
+
+    public SatelliteProperty getSatelliteProperty()
+    {
+        return satelliteProperty;
     }
 }
