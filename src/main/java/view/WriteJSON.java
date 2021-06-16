@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ *
+ */
 public class WriteJSON
 {
     Map<Satellite, List<Satellite.Channel>> sortedList;

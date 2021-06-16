@@ -9,13 +9,20 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Implementierung der Ausgabe als JSON File.
+ */
 public class OutputJSON implements AusgabeStrategy
 {
     JSONObject sortedListJSON;
     private static FileWriter file;
 
 
-
+    /**
+     * Schreibt die gefilterte Map in eine JSON Datei
+     *
+     * @param sortedList sortierte Map mit allen gefilterten Satelliten und Channels
+     */
     @Override
     public void outputMap(Map<Satellite, List<Satellite.Channel>> sortedList)
     {
@@ -29,6 +36,12 @@ public class OutputJSON implements AusgabeStrategy
        }
     }
 
+    /**
+     * Wandelt die in der Map gespeicherten Informationen in einen JSON kompatiblen String um.
+     *
+     * @param sortedList sortierte Map mit allen gefilterten Satelliten und Channels
+     * @return JSON-String der in der Map enthaltenen Informationen
+     */
     public String maptoString(Map<Satellite, List<Satellite.Channel>> sortedList)
     {
         StringBuilder stringBuilder = new StringBuilder();

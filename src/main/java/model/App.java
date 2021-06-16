@@ -1,5 +1,6 @@
 package model;
 
+
 import controller.AggregatStrategyFactory.AggregatContext;
 import view.AusgabeContext;
 import view.GUI;
@@ -10,12 +11,14 @@ import java.util.Map;
 
 import javax.swing.JFrame;
 
-public class App 
+
+public class App
 {
 	public static final String JSON_FILE = "resources/satellites.json";
     
     private static void showSatelliteTable() {
-        //Create and set up the window.
+
+		//Create and set up the window.
         JFrame frame = new JFrame("Satellites");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  

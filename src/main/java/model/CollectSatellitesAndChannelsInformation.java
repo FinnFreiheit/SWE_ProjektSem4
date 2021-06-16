@@ -5,7 +5,11 @@ import java.util.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+/**
+ * Klasse, welche die eingelesenen JSON Informationen verwaltet und formatiert
+ */
 public class CollectSatellitesAndChannelsInformation {
+
 	
 	JSONArray satellites;
 	
@@ -13,7 +17,12 @@ public class CollectSatellitesAndChannelsInformation {
 	{
 		this.satellites = ReadJSONFile.createJSONArrayListForAllSatellites(file);
 	}
-	
+
+	/**
+	 * Erstellt eine Map mit allen verfügbaren Sprachen
+	 *
+	 * @return Map mit allen verfügbaren Sprachen
+	 */
 	public Map<String, String> createLanguageMap()
 	{
 		Map<String, String> langMap = new TreeMap<>();
@@ -30,7 +39,12 @@ public class CollectSatellitesAndChannelsInformation {
 		
 		return langMap;
 	}
-	
+
+	/**
+	 * Erstellt eine Menge aus allen Satelliten, welche in der Eingabe JSON stehen
+	 *
+	 * @return Set aus Satelliten
+	 */
 	public Set<String> createSetOfAllSatellites()
 	{
 		Set<String> satellitesSet = new TreeSet<>();
@@ -42,7 +56,10 @@ public class CollectSatellitesAndChannelsInformation {
 		}
 		return satellitesSet;
 	}
-	
+
+	/**
+	 * Gibt alle Satelliten in der Konsole aus
+	 */
 	public void printSetOfAllSatellites()
 	{
 		Set<String> satellitesSet = this.createSetOfAllSatellites();
@@ -52,7 +69,12 @@ public class CollectSatellitesAndChannelsInformation {
 			System.out.printf("%-3d %-15s %n", i++, sat);
 		}
 	}
-	
+
+	/**
+	 * Erstellt eine Menge aus allen Channeln, welche in der Eingabe JSON stehen
+	 *
+	 * @return Set aus Channeln
+	 */
 	public Set<String> createSetOfAllChannelNames()
 	{
 		Set<String> channelsSet = new TreeSet<>();
@@ -83,6 +105,13 @@ public class CollectSatellitesAndChannelsInformation {
 	/*
 	 * language kann sein: "ger", "spa", "ukr", "chi", 
 	 */
+
+	/**
+	 * Erzegugt eine Menge an Channel-Namen, die in der übergebenen Sprache senden.
+	 *
+	 * @param language String der gewünschten Sprache
+	 * @return Set aus Channeln-Namen der gewünschten Sprache
+	 */
 	public Set<String> createSetOfAllChannelNamesByLanguage(String language)
 	{
 		Set<String> channelsSet = new TreeSet<>();
@@ -104,7 +133,13 @@ public class CollectSatellitesAndChannelsInformation {
 		}
 		return channelsSet;
 	}
-	
+
+	/**
+	 * Erzegugt eine Menge an TV-Kanal-Namen, die in der übergebenen Sprache senden.
+	 *
+	 * @param language String der gewünschten Sprache
+	 * @return Set aus TV-Kanal-Namen der gewünschten Sprache
+	 */
 	public Set<String> createSetOfAllTVChannelNamesByLanguage(String language)
 	{
 		Set<String> channelsSet = new TreeSet<>();
@@ -127,7 +162,8 @@ public class CollectSatellitesAndChannelsInformation {
 		}
 		return channelsSet;
 	}
-	
+
+
 	public void printSetOfAllChannelsByLanguage(String language)
 	{
 		Set<String> channelsSet = this.createSetOfAllChannelNamesByLanguage(language);
@@ -137,7 +173,12 @@ public class CollectSatellitesAndChannelsInformation {
 			System.out.printf("%-3d %-15s %n", i++, channelName);
 		}
 	}
-	
+
+	/**
+	 * Gibt die Menge an TV-Kanal-Namen einer gewünschten Sprache in der Konsole aus
+	 *
+	 * @param language language String der gewünschten Sprache
+	 */
 	public void printSetOfAllTVChannelsByLanguage(String language)
 	{
 		Set<String> channelsSet = this.createSetOfAllTVChannelNamesByLanguage(language);
@@ -147,7 +188,12 @@ public class CollectSatellitesAndChannelsInformation {
 			System.out.printf("%-3d %-15s %n", i++, channelName);
 		}
 	}
-	
+
+	/**
+	 * Erstellt ein Array aus allen Satelliten.
+	 *
+	 * @return Array von Satelliten
+	 */
 	public Satellite[] createSatelliteArray()
 	{
 		Satellite[] satellites = new Satellite[this.satellites.size()];
@@ -159,7 +205,10 @@ public class CollectSatellitesAndChannelsInformation {
 		}
 		return satellites;		
 	}
-	
+
+	/**
+	 * Gibt ein Array aus allen Satelliten in der Konsole aus
+	 */
 	public void printSatelliteArray()
 	{
 		Satellite[] satellites = createSatelliteArray();
@@ -172,6 +221,7 @@ public class CollectSatellitesAndChannelsInformation {
 	/**
 	 * Schluessel ist Satellit
 	 * Werte sind die Channels dieses Satelliten als Liste
+	 *
 	 * @return Map der Schluessel-Werte-Paare
 	 */
 	public Map<Satellite, List<Satellite.Channel>> createSatelliteChannelsMap()
@@ -190,6 +240,7 @@ public class CollectSatellitesAndChannelsInformation {
 	/**
 	 * Schluessel ist Channel
 	 * Werte sind die Satelliten dieses Channels als Liste
+	 *
 	 * @return Map der Schluessel-Werte-Paare
 	 */
 	public Map<Satellite.Channel, List<Satellite>> createChannelSatellitesMap()
@@ -220,6 +271,7 @@ public class CollectSatellitesAndChannelsInformation {
 	/**
 	 * Schluessel ist Name des Satelliten
 	 * Werte sind Menge aller Channels dieses Satelliten
+	 *
 	 * @return Map der Schluessel-Werte-Paare
 	 */
 	public Map<String, Set<Satellite.Channel>> createSatelliteNameChannelsMap()
@@ -282,7 +334,12 @@ public class CollectSatellitesAndChannelsInformation {
 			}
 		}
 	}
-	
+
+	/**
+	 * Erstellt ein Array aus allen APids aller Channel.
+	 *
+	 * @return Array von APids
+	 */
 	public Set<String> createSetOfAllChannelAPids()
 	{
 		Set<String> channelsSet = new TreeSet<>();

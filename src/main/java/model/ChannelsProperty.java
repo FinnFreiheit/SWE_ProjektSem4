@@ -4,6 +4,9 @@ package model;
 
 import java.util.*;
 
+/**
+ * Klasse für die Verarbeitung und Filterung einer Channel Map.
+ */
 public class ChannelsProperty 
 {
 	String property;
@@ -24,20 +27,30 @@ public class ChannelsProperty
 		this.values = values;
 		this.channelMap = createNewMap(baseMap, ci);
 	}
-	
+
+	/**
+	 * Filtert mit den übergebenen Filtern die Channel Map und gibt die neue Map zurück
+	 *
+	 * @param channelMapAll Map mit den Daten aller Satelliten
+	 * @param ci Satelliten und Channel Informationen
+	 * @return gefilterte Channel Map
+	 */
 	private Map<Satellite.Channel, List<Satellite>> createNewMap(Map<Satellite.Channel, List<Satellite>> channelMapAll, CollectSatellitesAndChannelsInformation ci)
 	{
 		Map<Satellite.Channel, List<Satellite>> channelMapNew = new TreeMap<>();
-		
+
+		// Iteration über alle Einträge der Satelliten Map
 		for(Map.Entry<Satellite.Channel, List<Satellite>> entry : channelMapAll.entrySet())
 		{
 			Satellite.Channel channel = entry.getKey();
 			List<Satellite> satList = entry.getValue();
-		
+
+			// Filterung nach den übergebenen Eigenschaften
 			for(String value : values)
 			{
 				switch(property.toLowerCase())
 				{
+					// Filterung nach Sprache
 					case "language": 
 						Map<String, String> lang = ci.createLanguageMap();
 						String language = lang.get(value.toLowerCase());
@@ -47,60 +60,80 @@ public class ChannelsProperty
 						}
 			
 					break;
+
+					// Filterung nach a_pid
 					case "a_pid":
 						if(channel.a_pid.toLowerCase().contains(value.toLowerCase()))
 						{
 							channelMapNew.put(channel, satList);
 						}
 					break;
+
+					// Filterung nach Name
 					case "name":
 						if(channel.name.toLowerCase().contains(value.toLowerCase()))
 						{
 							channelMapNew.put(channel, satList);
 						}
 					break;
+
+					// Filterung nach Res
 					case "res": 
 						if(channel.res.toLowerCase().contains(value.toLowerCase()))
 						{
 							channelMapNew.put(channel, satList);
 						}
 					break;
+
+					// Filterung nach URL
 					case "url":
 						if(channel.url.toLowerCase().contains(value.toLowerCase()))
 						{
 							channelMapNew.put(channel, satList);
 						}
 					break;
+
+					// Filterung nach SID
 					case "sid":
 						if(channel.sid.toLowerCase().contains(value.toLowerCase()))
 						{
 							channelMapNew.put(channel, satList);
 						}
 					break;
+
+					// Filterung nach V_PID
 					case "v_pid":
 						if(channel.v_pid.toLowerCase().contains(value.toLowerCase()))
 						{
 							channelMapNew.put(channel, satList);
 						}
 					break;
+
+					// Filterung nach Package
 					case "package":
 						if(channel.packge.toLowerCase().contains(value.toLowerCase()))
 						{
 							channelMapNew.put(channel, satList);
 						}
 					break;
+
+					// Filterung nach Type (TV, Radio)
 					case "type":
 						if(channel.type.toLowerCase().contains(value.toLowerCase()))
 						{
 							channelMapNew.put(channel, satList);
 						}
 					break;
+
+					// Filterung nach Enc
 					case "enc":
 						if(channel.enc.toLowerCase().contains(value.toLowerCase()))
 						{
 							channelMapNew.put(channel, satList);
 						}
 					break;
+
+					// Filterung nach Compression
 					case "compression":
 						if(channel.compression.toLowerCase().contains(value.toLowerCase()))
 						{
@@ -113,7 +146,12 @@ public class ChannelsProperty
 		this.channelMapNewNew = channelMapNew;
 		return channelMapNew;
 	}
-	
+
+	/**
+	 * Gibt einen Klon der privaten Channel Map zurück
+	 *
+	 * @return Channel Map
+	 */
 	public Map<Satellite.Channel, List<Satellite>> getChannelMap()
 	{
 		Map<Satellite.Channel, List<Satellite>> clone = new TreeMap<>();

@@ -7,6 +7,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Verschachtelte Satellitenklasse. Beinhaltet alle Satellitenattribute und eine Channel Klasse mit
+ * alles Channelattributen
+ */
 public class Satellite implements Comparable<Satellite>{
     String pol;
     String sat;
@@ -31,7 +35,12 @@ public class Satellite implements Comparable<Satellite>{
         	this.channels[index++] = new Channel(channelJSON, this);
         }
     }
-    
+	/**
+	 * Gibt je nach input String ein privates Attribut der Satellite Klasse zurück
+	 *
+	 * @param property Attribut das zurückgegeben werden soll
+	 * @return Attribut
+	 */
    	public String get(String property)
 	{
 		switch(property.toLowerCase())
@@ -49,8 +58,11 @@ public class Satellite implements Comparable<Satellite>{
    	{
    		return this.channels;
    	}
-    
-    public class Channel implements Comparable<Channel>{
+
+	/**
+	 * Verschachtelte Channel Klasse, enthält alle Channel Attribute
+	 */
+	public class Channel implements Comparable<Channel>{
     	String a_pid;
     	String name;
     	String res;
@@ -78,6 +90,10 @@ public class Satellite implements Comparable<Satellite>{
             this.satellite = satellite;
     	}
 
+		/**
+		 * to String Methode welche die Channel Attribute in einem JSON String zurückgibt
+		 * @return formatted String
+		 */
 		@Override
 		public String toString()
 		{
@@ -87,6 +103,12 @@ public class Satellite implements Comparable<Satellite>{
 					",\n\t\t\t\t\"compression\": \"" +compression + '\"' + "\n\t\t\t},";
 		}
 
+		/**
+		 * Gibt je nach input String ein privates Attribut der Channel Klasse zurück
+		 *
+		 * @param property Attribut das zurückgegeben werden soll
+		 * @return Attribut
+		 */
 		public String get(String property)
     	{
     		switch(property.toLowerCase())
@@ -105,12 +127,25 @@ public class Satellite implements Comparable<Satellite>{
     		return "";
     	}
 
+		/**
+		 * Vergleicht den übergebenen Namen des Channels mit dem Namen des Channel Objektes
+		 *
+		 * @param o zu vergleichender Channel
+		 * @return 0 wenn die Namen identisch sind; Wert kleiner 0 wenn der String lexikographisch kleiner ist,
+		 * 	Wert größer 0 der String lexikographisch größer ist
+		 */
 		@Override
 		public int compareTo(Channel o) 
 		{
 			return this.name.compareTo(o.name);
 		}
-		
+
+		/**
+		 * Vergleicht ob sich zwei Objekte Namen gleichen
+		 *
+		 * @param o zu vergleichends Objekt
+		 * @return True wenn sich die Namen gleichen, False wenn nicht
+		 */
 		@Override
 		public boolean equals(Object o)
 		{
@@ -154,6 +189,14 @@ public class Satellite implements Comparable<Satellite>{
         }
     }
 
+	/**
+	 * Vergleicht alle Attribute des übergebenen Satelliten mit denen des Objektes. Ist ein Attribut
+	 * gleich, so wird überprüft ob sich auch die anderen Attribute gleichen
+	 *
+	 * @param sat zu vergleichender Satellite
+	 * @return 0 wenn die Namen identisch sind; Wert kleiner 0 wenn der String lexikographisch kleiner ist,
+	 * 	Wert größer 0 der String lexikographisch größer ist
+	 */
 	@Override
 	public int compareTo(Satellite sat)
 	{
@@ -172,7 +215,12 @@ public class Satellite implements Comparable<Satellite>{
 		} else return this.sat.compareTo(sat.sat);
 	}
 
-
+	/**
+	 * Vergleicht ob sich zwei Satteliten Namen gleichen
+	 *
+	 * @param o zu vergleichends Objekt
+	 * @return True wenn sich die Satelliten gleichen, False wenn nicht
+	 */
 	@Override
 	public boolean equals(Object o)
 	{

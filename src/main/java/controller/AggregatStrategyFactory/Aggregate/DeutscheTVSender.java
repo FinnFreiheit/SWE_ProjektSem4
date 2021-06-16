@@ -10,19 +10,28 @@ import model.*;
 import java.util.List;
 import java.util.Map;
 
-/*
-* Implementierung des Sortierung, zum Beispiel alle Deutschen TV Sender bestimmten.
-* Ergebnis wird in eine Map gespeichert */
+/**
+* Implementierung des Aggregierens aller Deutschen TV Sender.
+* Das Ergebnis wird in eine Map gespeichert
+ */
 public class DeutscheTVSender  extends SuperAggregat implements AggregatStrategy
 {
+
     public DeutscheTVSender()
     {
         super("language", new String[]{"deutsch"});
     }
 
+    /**
+     * Legt das zweite zu filternde Attribute fest (TV-Sender) und gibt die
+     * gefilterte Map zurück
+     *
+     * @return gefilterte Satelliten Map mit deutschen TV-Sendern
+     */
     @Override
     public Map<Satellite, List<Satellite.Channel>> executeAlgorithm()
     {
+
         filter("type",new String[]{"TV"});
         return getSatelliteProperty().getSatelliteMap();
     }

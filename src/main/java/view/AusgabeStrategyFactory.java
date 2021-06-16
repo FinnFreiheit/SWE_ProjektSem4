@@ -4,6 +4,11 @@ import model.CollectConfigInformation;
 
 import java.lang.reflect.InvocationTargetException;
 
+/**
+ * In der Faktory wird das Configfile gelesen. Die Output Information wird verwendet.
+ * es wird eine Instanz der Outputklasse initialisiert vom typ AusgabeStrategy. Diese Instanz hat die Methode
+ * outputMap() implementiert.
+ */
 public class AusgabeStrategyFactory
 {
     public AusgabeStrategy getStrategy()

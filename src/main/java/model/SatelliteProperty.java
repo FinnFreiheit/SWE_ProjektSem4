@@ -2,6 +2,9 @@ package model;
 
 import java.util.*;
 
+/**
+ * Klasse für die Verarbeitung und Filterung einer Satelliten Map.
+ */
 public class SatelliteProperty
 {
     String property;
@@ -23,23 +26,32 @@ public class SatelliteProperty
         this.satelliteMap = createNewMap(baseMap, ci);
     }
 
+    /**
+     * Filtert mit den übergebenen Filtern die Satelliten Map und gibt die neue Map zurück
+     *
+     * @param satelliteMapAll Map mit den Daten aller Satelliten
+     * @param ci Satelliten und Channel Informationen
+     * @return gefilterte Satelliten Map
+     */
     private Map<Satellite, List<Satellite.Channel>> createNewMap(Map<Satellite, List<Satellite.Channel>> satelliteMapAll,
                                                                  CollectSatellitesAndChannelsInformation ci )
     {
         Map<Satellite, List<Satellite.Channel>> satelliteMapNew = new TreeMap<>();
 
+        // Iteration über alle Einträge der Satelliten Map
         for(Map.Entry<Satellite,List<Satellite.Channel>> entry : satelliteMapAll.entrySet())
         {
             Satellite satellite = entry.getKey();
             List<Satellite.Channel> channelList = entry.getValue();
             List<Satellite.Channel> channelListTemp = new ArrayList<>();
 
-
+            // Filterung nach den übergebenen Eigenschaften
             for(String value:values)
             {
                 channelListTemp.clear();
                 switch (property.toLowerCase())
                 {
+                    // Filterung nach Sprache
                     case "language":
                         Map<String, String> lang = ci.createLanguageMap();
                         String language = lang.get(value.toLowerCase());
@@ -58,6 +70,7 @@ public class SatelliteProperty
 
                     break;
 
+                    // Filterung nach a_pid
                     case "a_pid":
                         for(Satellite.Channel channel : channelList)
                         {
@@ -69,6 +82,7 @@ public class SatelliteProperty
                         satelliteMapNew.put(satellite, channelListTemp);
                     break;
 
+                    // Filterung nach Type (TV, Radio)
                     case "type":
                         for(Satellite.Channel channel : channelList)
                         {
@@ -88,6 +102,11 @@ public class SatelliteProperty
         return satelliteMapNew;
     }
 
+    /**
+     * Gibt einen Klon der privaten Satelliten Map zurück
+     *
+     * @return Satelliten Map
+     */
     public Map<Satellite, List<Satellite.Channel>> getSatelliteMap()
     {
         Map<Satellite, List<Satellite.Channel>> clone = new TreeMap<>();

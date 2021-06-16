@@ -43,6 +43,12 @@ public class ReadJSONFile {
         return null;
     }
 
+    /**
+     * Erzeugt eine JSON-Array-List aus den Daten, welche in der Konfig-File stehen.
+     *
+     * @param file Pfad zur Config-File
+     * @return null
+     */
     public static JSONArray createJSONArrayListFromConfig(String file)
     {
         JSONParser jsonParser = new JSONParser();
@@ -68,6 +74,7 @@ public class ReadJSONFile {
      * gibt das JSONArray aller Satelliten auf die Konsole aus
      * ruft für jeden Satelliten printOneSatelliteOnConsole() auf, 
      * um dessen Eigenschaften auszugeben
+     *
      * @param file : die JSON-Datei, die alle Satelliten enthält
      */
     public static void printAllSatellitesOnConsole(String file) 
@@ -85,6 +92,7 @@ public class ReadJSONFile {
      * gibt die Eigenschaften eines einzelnen Satelliten auf die Konsole aus
      * ruft die Methode printOneChannelOnConsole() auf, um alle Channels eines
      * Satelliten auf die Konsole auszugeben
+     *
      * @param satellite : der einzelne Satellit, dessen Eigenschaften ausgegeben werden
      */
     private static void printOneSatelliteOnConsole(JSONObject satellite) 
@@ -148,6 +156,7 @@ public class ReadJSONFile {
     /**
      * erzeugt ein einfaches data-Object[] für einen Satelliten
      * wird für die Tabelle in der GUI verwendet - siehe SatelliteTable
+     *
      * @param satellite : der einzelne Satellit, für den das data-Array erzeugt wird
      * @return Object[] aller Eigenschaften eines Satelliten (ausser "channels")
      */
