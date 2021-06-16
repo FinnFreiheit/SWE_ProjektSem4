@@ -155,21 +155,21 @@ public class Satellite implements Comparable<Satellite>{
     }
 
 	@Override
-	public int compareTo(Satellite o) 
+	public int compareTo(Satellite sat)
 	{
-		if(this.sat.equals(o.sat))
+		if(this.sat.equals(sat.sat))
 		{
-			if(this.sym.equals(o.sym))
+			if(this.sym.equals(sat.sym))
 			{
-				if(this.pol.equals(o.pol))
+				if(this.pol.equals(sat.pol))
 				{
-					if(this.orbital.equals(o.orbital))
+					if(this.orbital.equals(sat.orbital))
 					{
-						return this.freq.compareTo(o.freq);
-					} else return this.orbital.compareTo(o.orbital);
-				} else return this.pol.compareTo(o.pol);
-			} else return this.sym.compareTo(o.sym);
-		} else return this.sat.compareTo(o.sat);
+						return this.freq.compareTo(sat.freq);
+					} else return this.orbital.compareTo(sat.orbital);
+				} else return this.pol.compareTo(sat.pol);
+			} else return this.sym.compareTo(sat.sym);
+		} else return this.sat.compareTo(sat.sat);
 	}
 
 

@@ -1,6 +1,8 @@
 package model;
 
 import controller.AggregatStrategyFactory.AggregatContext;
+import view.AusgabeContext;
+import view.GUI;
 import view.WriteJSON;
 
 import java.util.List;
@@ -76,9 +78,9 @@ public class App
 			case 6:
 				AggregatContext foo = new AggregatContext();
 
+				AusgabeContext bla = new AusgabeContext();
 
-				WriteJSON writer = new WriteJSON(foo.aggregatAnwenden());
-				writer.writeToFile();
+				bla.MapAusgabe(foo.aggregatAnwenden());
 
 				break;
     	}

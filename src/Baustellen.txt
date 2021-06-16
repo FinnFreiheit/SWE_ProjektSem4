@@ -1,0 +1,8 @@
+# Map -> Satellite Property
+## To String -> To Json ...
+# Aggregat -> Abstrakteklasse
+# Komposide was machen oder nicht
+# GUI
+# Aggregat
+# Fehlerbehebung
+# Tests
