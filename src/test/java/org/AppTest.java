@@ -79,6 +79,11 @@ public class AppTest
 
     }
 
+    /**
+     * Funktioniert nicht, da Map in Super erstellt wird, bevor wir Path ändern können. Somit wird nie die Test JSON
+     * ausgelsen. Sondern immer Original.
+     * Könnten auch aufs Original testen. Ist ansich wumpe.
+     */
     @Test
     public void aggregat()
     {
