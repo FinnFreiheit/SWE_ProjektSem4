@@ -53,4 +53,8 @@ public abstract class SuperAggregat
     {
         return satelliteProperty;
     }
+
+    public void setPathInformation(String satellitesPath){
+        this.information.setSatellitesPath(satellitesPath);
+    }
 }

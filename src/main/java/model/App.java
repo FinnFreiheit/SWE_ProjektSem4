@@ -3,8 +3,6 @@ package model;
 
 import controller.AggregatStrategyFactory.AggregatContext;
 import view.AusgabeContext;
-import view.GUI;
-import view.WriteJSON;
 
 import java.util.List;
 import java.util.Map;

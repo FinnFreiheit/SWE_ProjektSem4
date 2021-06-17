@@ -49,11 +49,11 @@ public class OutputJSON implements AusgabeStrategy
         for(Map.Entry<Satellite, List<Satellite.Channel>> entry : sortedList.entrySet())
         {
             Satellite sat = entry.getKey();
-            stringBuilder.append(sat.toString());
+            stringBuilder.append(sat.toJSONString());
             stringBuilder.append("[");
             for(Satellite.Channel channel: entry.getValue())
             {
-                stringBuilder.append(channel.toString());
+                stringBuilder.append(channel.toJSONString());
             }
             stringBuilder.deleteCharAt(stringBuilder.length()-1);
             stringBuilder.append("]");

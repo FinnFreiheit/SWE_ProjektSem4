@@ -8,6 +8,8 @@ import org.json.simple.JSONObject;
  */
 public class CollectConfigInformation
 {
+
+
     private String satellitesPath;
     private String aggregat;
     private String output;
@@ -52,5 +54,10 @@ public class CollectConfigInformation
     public String getOutput()
     {
         return output;
+    }
+
+    public void setSatellitesPath(String satellitesPath)
+    {
+        this.satellitesPath = satellitesPath;
     }
 }
