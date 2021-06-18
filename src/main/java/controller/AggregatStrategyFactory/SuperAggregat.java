@@ -17,13 +17,11 @@ public abstract class SuperAggregat
     private SatelliteProperty satelliteProperty;
 
 
-    public SuperAggregat(String Property, String[] Value)
+    public SuperAggregat()
     {
         this.information = new CollectConfigInformation();
         this.satellitesAndChannelsInfo =
                 new CollectSatellitesAndChannelsInformation(this.information.getSatellitesPath());
-
-        this.firstFilter(Property, Value);
 
     }
 
@@ -33,7 +31,7 @@ public abstract class SuperAggregat
     }
 
 
-    private void firstFilter(String Property, String[] Value)
+    public void firstFilter(String Property, String[] Value)
     {
 
         this.satelliteProperty = new SatelliteProperty(Property, Value, this.satellitesAndChannelsInfo);
@@ -54,7 +52,17 @@ public abstract class SuperAggregat
         return satelliteProperty;
     }
 
+    /**
+     * @param satellitesPath
+     */
     public void setPathInformation(String satellitesPath){
         this.information.setSatellitesPath(satellitesPath);
     }
+
+    public void setSatellitesAndChannelsInfo()
+    {
+        this.satellitesAndChannelsInfo =
+                new CollectSatellitesAndChannelsInformation(this.information.getSatellitesPath());
+    }
+
 }

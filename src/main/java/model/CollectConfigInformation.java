@@ -32,7 +32,6 @@ public class CollectConfigInformation
      */
     public String getSatellitesPath()
     {
-        System.out.println(this.satellitesPath);
         return this.satellitesPath;
     }
 

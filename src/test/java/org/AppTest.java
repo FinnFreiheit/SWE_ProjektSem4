@@ -51,9 +51,8 @@ public class AppTest
     public void getSatelliteInfosAndWriteIntoClasses()
     {
         Satellite[] satellites = this.satellitesAndChannelsInformation.createSatelliteArray();
-        assertEquals(satellites.length, 1);
-        assertEquals(satellites[0].getChannels().length, 3);
-
+        assertEquals(1,satellites.length);
+        assertEquals(3,satellites[0].getChannels().length);
     }
 
     /**
@@ -70,7 +69,7 @@ public class AppTest
 
             assertEquals(satellite.get("sat"), "sat");
 
-            assertEquals(channels.size(), 2);
+            assertEquals(2,channels.size());
 
             assertEquals(channels.get(0).get("name"), "Radio-Channel-ger");
             assertEquals(channels.get(1).get("name"), "TV-Channel-ger");
@@ -93,8 +92,9 @@ public class AppTest
 
         aggregatContext.setStrategy(deutscheTVSenderAgg);
         deutscheTVSenderAgg.setPathInformation("src/test/java/org/testResources/testSatellites.json");
+
         Map<Satellite, List<Satellite.Channel>> deutscheTVSender = aggregatContext.aggregatAnwenden();
-        deutscheTVSenderAgg.setPathInformation("src/test/java/org/testResources/testSatellites.json");
+
 
         for (Map.Entry<Satellite, List<Satellite.Channel>> entry : deutscheTVSender.entrySet())
         {

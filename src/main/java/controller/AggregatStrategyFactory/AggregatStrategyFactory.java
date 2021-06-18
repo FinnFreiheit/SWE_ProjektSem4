@@ -25,6 +25,7 @@ public class AggregatStrategyFactory
                 | ClassNotFoundException | InvocationTargetException | NoSuchMethodException e)
         {
             e.printStackTrace();
+
         }
         return null;
     }

@@ -1,8 +1,15 @@
-# Map -> Satellite Property
-## To String -> To Json ...
-# Aggregat -> Abstrakteklasse
+
+
+
 # Komposide was machen oder nicht
-# GUI
-# Aggregat
-# Fehlerbehebung
-# Tests
+
+# GUI (Finn) ToString
+# JSON (Armin)
+
+# Aggregat (Sarah)
+
+# Tests (Ausgabe JSON)
+
+# UML
+# (Fehlerbehandlung) (Config, Satellite)
+# Map -> Satellite Property

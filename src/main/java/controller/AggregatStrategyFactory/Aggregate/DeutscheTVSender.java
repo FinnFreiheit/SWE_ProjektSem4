@@ -19,7 +19,7 @@ public class DeutscheTVSender  extends SuperAggregat implements AggregatStrategy
 
     public DeutscheTVSender()
     {
-        super("language", new String[]{"deutsch"});
+        super();
     }
 
     /**
@@ -31,7 +31,7 @@ public class DeutscheTVSender  extends SuperAggregat implements AggregatStrategy
     @Override
     public Map<Satellite, List<Satellite.Channel>> executeAlgorithm()
     {
-
+        firstFilter("language", new String[]{"deutsch"});
         filter("type",new String[]{"TV"});
         return getSatelliteProperty().getSatelliteMap();
     }
