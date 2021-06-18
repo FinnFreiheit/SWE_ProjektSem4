@@ -62,4 +62,5 @@ public class OutputJSON implements AusgabeStrategy
         stringBuilder.append("]");
         return stringBuilder.toString();
     }
+
 }

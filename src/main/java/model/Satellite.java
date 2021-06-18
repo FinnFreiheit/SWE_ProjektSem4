@@ -79,6 +79,11 @@ public class Satellite implements Comparable<Satellite>, JSONWriteable {
         }
     }
 
+    public String toString(){
+   		return String.format("%n%-14s %-10s %-6s %-8s %-8s %n",
+							 this.sat, this.orbital, this.pol, this.freq, this.sym);
+	}
+
 	/**
 	 * Vergleicht alle Attribute des übergebenen Satelliten mit denen des Objektes. Ist ein Attribut
 	 * gleich, so wird überprüft ob sich auch die anderen Attribute gleichen
@@ -244,5 +249,12 @@ public class Satellite implements Comparable<Satellite>, JSONWriteable {
 		{
 			System.out.printf("--- %-22s %-8s %-8s %-8s %n", this.name, this.compression, this.enc, this.a_pid);
 		}
+
+		public String toString()
+		{
+			return String.format("--- %-22s %-8s %-8s %-8s %n", this.name, this.compression, this.enc, this.a_pid);
+		}
+
+
 	}
 }
