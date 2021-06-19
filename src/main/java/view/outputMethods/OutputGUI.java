@@ -36,6 +36,7 @@ public class OutputGUI extends JFrame implements AusgabeStrategy
     public void outputMap(Map<Satellite, List<Satellite.Channel>> sortedList)
     {
         JTextArea text = new JTextArea(generateString(sortedList));
+        text.setEditable(false);
         scrollPane = new JScrollPane(text);
 
         EventQueue.invokeLater(new Runnable()
