@@ -62,7 +62,7 @@ public class OutputGUI extends JFrame implements AusgabeStrategy
             mainString.append("\n");
             for(Satellite.Channel channel: entry.getValue())
             {
-               mainString.append(channel.toString());
+               mainString.append("---\t" + channel.toString());
                mainString.append("\n");
             }
         }

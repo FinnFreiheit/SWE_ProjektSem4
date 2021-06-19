@@ -1,19 +1,22 @@
 package view.outputMethods;
 
+
 import model.Satellite;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import view.AusgabeStrategy;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.util.List;
 import java.util.Map;
+
 
 /**
  * Implementierung der Ausgabe als JSON File.
  */
-public class OutputJSON implements AusgabeStrategy
-{
+public class OutputJSON implements AusgabeStrategy {
     JSONObject sortedListJSON;
     private static FileWriter file;
 
@@ -24,16 +27,17 @@ public class OutputJSON implements AusgabeStrategy
      * @param sortedList sortierte Map mit allen gefilterten Satelliten und Channels
      */
     @Override
-    public void outputMap(Map<Satellite, List<Satellite.Channel>> sortedList)
-    {
-       try
-       {
-           file = new FileWriter("resources/sortedSatellites.json");
-           file.write(maptoString(sortedList));
-       } catch (IOException e)
-       {
-           e.printStackTrace();
-       }
+    public void outputMap(Map<Satellite, List<Satellite.Channel>> sortedList) {
+      JSONArray js = maptoString(sortedList);
+
+        try {
+
+            file = new FileWriter("resources/sortedSatellites.json");
+            file.write(String.valueOf(js));
+            file.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -42,25 +46,32 @@ public class OutputJSON implements AusgabeStrategy
      * @param sortedList sortierte Map mit allen gefilterten Satelliten und Channels
      * @return JSON-String der in der Map enthaltenen Informationen
      */
-    public String maptoString(Map<Satellite, List<Satellite.Channel>> sortedList)
-    {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("[");
-        for(Map.Entry<Satellite, List<Satellite.Channel>> entry : sortedList.entrySet())
-        {
+    public JSONArray maptoString(Map<Satellite, List<Satellite.Channel>> sortedList) {
+        JSONArray jsonArraySat = new JSONArray();
+        for (Map.Entry<Satellite, List<Satellite.Channel>> entry : sortedList.entrySet()) {
+            JSONObject satJson = new JSONObject();
             Satellite sat = entry.getKey();
-            stringBuilder.append(sat.toJSONString());
-            stringBuilder.append("[");
-            for(Satellite.Channel channel: entry.getValue())
-            {
-                stringBuilder.append(channel.toJSONString());
+            String[] satAttributs = sat.getAttributs();
+            String[] satValues = sat.toStringArray();
+            JSONArray jsonArrayChannel = new JSONArray();
+            for (Satellite.Channel channel : entry.getValue()) {
+                String[] channelsAttr = channel.getAttributs();
+                String[] channelString = channel.toStringArray();
+                JSONObject jsonChannel = new JSONObject();
+                for (int index = 0; index < channelsAttr.length; index++) {
+                    jsonChannel.put(channelsAttr[index], channelString[index]);
+                }
+                jsonArrayChannel.add(jsonChannel);
             }
-            stringBuilder.deleteCharAt(stringBuilder.length()-1);
-            stringBuilder.append("]");
-            stringBuilder.append("\n\t},");
+            for (int index = 0; index < satAttributs.length; index++) {
+
+                satJson.put(satAttributs[index], satValues[index]);
+            }
+            satJson.put("channels", jsonArrayChannel);
+            jsonArraySat.add(satJson);
         }
-        stringBuilder.append("]");
-        return stringBuilder.toString();
+        return jsonArraySat;
     }
 
 }
+

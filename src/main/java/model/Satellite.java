@@ -18,14 +18,14 @@ public class Satellite implements Comparable<Satellite>, JSONWriteable {
     String freq;
     String sym;
     Channel[] channels;
-    
+
     Satellite(JSONObject sat)
     {
-        this.sat = (String) sat.get("sat");   
-        this.pol = (String) sat.get("pol");  
-        this.orbital = (String) sat.get("orbital");   
-        this.freq = (String) sat.get("freq");  
-        this.sym = (String) sat.get("sym"); 
+        this.sat = (String) sat.get("sat");
+        this.pol = (String) sat.get("pol");
+        this.orbital = (String) sat.get("orbital");
+        this.freq = (String) sat.get("freq");
+        this.sym = (String) sat.get("sym");
         JSONArray channelArray = (JSONArray) sat.get("channels");
         this.channels = new Channel[channelArray.size()];
         int index = 0;
@@ -53,7 +53,7 @@ public class Satellite implements Comparable<Satellite>, JSONWriteable {
 		}
 		return "";
 	}
-   	
+
    	public Channel[] getChannels()
    	{
    		return this.channels;
@@ -71,7 +71,7 @@ public class Satellite implements Comparable<Satellite>, JSONWriteable {
 
     public void print()
     {
-        System.out.printf("%n%-14s %-10s %-6s %-8s %-8s %n", 
+        System.out.printf("%n%-14s %-10s %-6s %-8s %-8s %n",
         		this.sat, this.orbital, this.pol, this.freq, this.sym);
         for(Channel c : this.channels)
         {
@@ -82,6 +82,15 @@ public class Satellite implements Comparable<Satellite>, JSONWriteable {
     public String toString(){
    		return String.format("%n%-14s %-10s %-6s %-8s %-8s %n",
 							 this.sat, this.orbital, this.pol, this.freq, this.sym);
+	}
+
+
+	public String[] toStringArray(){
+		return new String[]{this.sat, this.orbital, this.pol, this.freq, this.sym};
+	}
+
+	public String[] getAttributs(){
+   		return new String[]{"sat","orbital","pol","freq","sym"};
 	}
 
 	/**
@@ -185,6 +194,8 @@ public class Satellite implements Comparable<Satellite>, JSONWriteable {
 					",\n\t\t\t\t\"compression\": \"" +compression + '\"' + "\n\t\t\t},";
 		}
 
+
+
 		/**
 		 * Gibt je nach input String ein privates Attribut der Channel Klasse zurück
 		 *
@@ -249,10 +260,17 @@ public class Satellite implements Comparable<Satellite>, JSONWriteable {
 		{
 			System.out.printf("--- %-22s %-8s %-8s %-8s %n", this.name, this.compression, this.enc, this.a_pid);
 		}
-
 		public String toString()
 		{
-			return String.format("--- %-22s %-8s %-8s %-8s %n", this.name, this.compression, this.enc, this.a_pid);
+			return String.format("%-22s %-8s %-8s %-8s %n", this.name, this.compression, this.enc, this.a_pid);
+		}
+
+		public String[] toStringArray()
+		{
+			return new String[]{this.a_pid ,this.name, this.res, this.url, this.sid, this.v_pid, this.packge, this.type, this.enc, this.compression};
+		}
+		public String[] getAttributs(){
+			return new String[]{"a_pid", "name", "res", "url", "sid", "v_pid", "packge", "type", "enc", "compression"};
 		}
 
 
