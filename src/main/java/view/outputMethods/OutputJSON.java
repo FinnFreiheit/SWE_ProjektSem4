@@ -1,6 +1,7 @@
 package view.outputMethods;
 
 
+import model.MapFrame;
 import model.Satellite;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -27,8 +28,8 @@ public class OutputJSON implements AusgabeStrategy {
      * @param sortedList sortierte Map mit allen gefilterten Satelliten und Channels
      */
     @Override
-    public void outputMap(Map<Satellite, List<Satellite.Channel>> sortedList) {
-      JSONArray js = maptoString(sortedList);
+    public void outputMap(MapFrame sortedList) {
+      JSONArray js = maptoString(sortedList.map);
 
         try {
 

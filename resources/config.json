@@ -2,6 +2,6 @@
   {
     "satellitesPath" : "resources/satellites.json",
     "aggregat" : "controller.AggregatStrategyFactory.Aggregate.DeutscheTVSender",
-    "output" : "view.outputMethods.OutputGUI"
+    "output" : "view.outputMethods.OutputJSON"
   }
 ]

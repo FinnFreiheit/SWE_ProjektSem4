@@ -27,10 +27,10 @@ public class DeutscheTVSender  extends SuperAggregat implements AggregatStrategy
      * @return gefilterte Satelliten Map mit deutschen TV-Sendern
      */
     @Override
-    public Map<Satellite, List<Satellite.Channel>> executeAlgorithm()
+    public MapFrame executeAlgorithm()
     {
         firstFilter("language", new String[]{"deutsch"});
         filter("type",new String[]{"TV"});
-        return getSatelliteProperty().getSatelliteMap();
+        return new MapFrame(getSatelliteProperty().getSatelliteMap());
     }
 }

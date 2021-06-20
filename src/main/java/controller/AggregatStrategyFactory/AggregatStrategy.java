@@ -1,5 +1,6 @@
 package controller.AggregatStrategyFactory;
 
+import model.MapFrame;
 import model.Satellite;
 
 import java.util.List;
@@ -12,5 +13,5 @@ import java.util.Map;
  */
 public interface AggregatStrategy
 {
-    public Map<Satellite, List<Satellite.Channel>> executeAlgorithm();
+    public MapFrame executeAlgorithm();
 }

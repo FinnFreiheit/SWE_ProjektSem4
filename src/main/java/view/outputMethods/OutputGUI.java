@@ -1,5 +1,6 @@
 package view.outputMethods;
 
+import model.MapFrame;
 import model.Satellite;
 import view.AusgabeStrategy;
 
@@ -33,9 +34,9 @@ public class OutputGUI extends JFrame implements AusgabeStrategy
     }
 
     @Override
-    public void outputMap(Map<Satellite, List<Satellite.Channel>> sortedList)
+    public void outputMap(MapFrame sortedList)
     {
-        JTextArea text = new JTextArea(generateString(sortedList));
+        JTextArea text = new JTextArea(generateString(sortedList.map));
         text.setEditable(false);
         scrollPane = new JScrollPane(text);
 
