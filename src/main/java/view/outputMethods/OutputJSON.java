@@ -50,9 +50,8 @@ public class OutputJSON implements AusgabeStrategy {
         JSONArray jsonArraySat = new JSONArray();
         for (Map.Entry<Satellite, List<Satellite.Channel>> entry : sortedList.entrySet()) {
             JSONObject satJson = new JSONObject();
-            Satellite sat = entry.getKey();
-            String[] satAttributs = sat.getAttributs();
-            String[] satValues = sat.toStringArray();
+            String[] satAttributs = entry.getKey().getAttributs();
+            String[] satValues = entry.getKey().toStringArray();
             JSONArray jsonArrayChannel = new JSONArray();
             for (Satellite.Channel channel : entry.getValue()) {
                 String[] channelsAttr = channel.getAttributs();
