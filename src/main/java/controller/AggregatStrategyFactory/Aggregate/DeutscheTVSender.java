@@ -2,13 +2,7 @@ package controller.AggregatStrategyFactory.Aggregate;
 
 import controller.AggregatStrategyFactory.AggregatStrategy;
 import controller.AggregatStrategyFactory.SuperAggregat;
-import model.CollectSatellitesAndChannelsInformation;
-import model.Satellite;
-import model.SatelliteProperty;
 import model.*;
-
-import java.util.List;
-import java.util.Map;
 
 /**
 * Implementierung des Aggregierens aller Deutschen TV Sender.

@@ -30,7 +30,6 @@ public class TransponderAnzahlSender extends SuperAggregat implements AggregatSt
     public MapFrame executeAlgorithm()
     {
         firstFilter("sat", new String[]{"ABS-2A"});
-        filter("type",new String[]{"TV"});
-        return new MapFrame(getSatelliteProperty().getSatelliteMap());
+        return new MapFrame(getSatelliteProperty().getSatelliteMap(), "getCount");
     }
 }
