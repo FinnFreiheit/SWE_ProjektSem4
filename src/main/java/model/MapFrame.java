@@ -10,16 +10,20 @@ public class MapFrame
     public Map<Satellite, List<Satellite.Channel>> map;
     public Map<String, List<String>> stringMap;
 
+    /* Konstruktor überladen mit einer anderen Map,
+        getStringMap überladen mit der Map. Aber an sich alles scheiße.
+     */
     public MapFrame(Map<Satellite, List<Satellite.Channel>> map)
     {
         this.map = map;
-        this.stringMap = this.getStringMap();
+        this.stringMap = this.getStringMap(map);
     }
 
-    public Map<String, List<String>> getStringMap()
+
+    public Map<String, List<String>> getStringMap(Map<Satellite, List<Satellite.Channel>> map)
     {
         Map<String, List<String>> mapString = new TreeMap<>();
-        for(Map.Entry<Satellite,List<Satellite.Channel>> entry : this.map.entrySet())
+        for(Map.Entry<Satellite,List<Satellite.Channel>> entry : map.entrySet())
         {
             Satellite satellite = entry.getKey();
             String satelliteString = satellite.toString();
