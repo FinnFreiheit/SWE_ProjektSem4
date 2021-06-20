@@ -1,7 +1,7 @@
 package view.outputMethods;
 
 
-import model.MapFrame;
+
 import model.Satellite;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -28,8 +28,9 @@ public class OutputJSON implements AusgabeStrategy {
      * @param sortedList sortierte Map mit allen gefilterten Satelliten und Channels
      */
     @Override
-    public void outputMap(MapFrame sortedList) {
-      JSONArray js = maptoString(sortedList.map);
+    public void outputMap(Map<String, List<String>> sortedList) {
+        /*
+      JSONArray js = maptoString(sortedList);
 
         try {
 
@@ -39,6 +40,8 @@ public class OutputJSON implements AusgabeStrategy {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+         */
     }
 
     /**
@@ -47,7 +50,9 @@ public class OutputJSON implements AusgabeStrategy {
      * @param sortedList sortierte Map mit allen gefilterten Satelliten und Channels
      * @return JSON-String der in der Map enthaltenen Informationen
      */
-    public JSONArray maptoString(Map<Satellite, List<Satellite.Channel>> sortedList) {
+    public JSONArray maptoString(Map<Satellite, List<Satellite.Channel>> sortedList)
+    {
+        /*
         JSONArray jsonArraySat = new JSONArray();
         for (Map.Entry<Satellite, List<Satellite.Channel>> entry : sortedList.entrySet()) {
             JSONObject satJson = new JSONObject();
@@ -73,5 +78,9 @@ public class OutputJSON implements AusgabeStrategy {
         return jsonArraySat;
     }
 
+         */
+        //obacht
+        return null;
+    }
 }
 

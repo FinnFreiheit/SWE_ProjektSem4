@@ -1,6 +1,6 @@
 package view.outputMethods;
 
-import model.MapFrame;
+
 import model.Satellite;
 import view.AusgabeStrategy;
 
@@ -31,7 +31,7 @@ public class OutputGUI extends JFrame implements AusgabeStrategy
     }
 
     @Override
-    public void outputMap(MapFrame sortedList)
+    public void outputMap(Map<String, List<String>> sortedList)
     {
         JTextArea text = new JTextArea(generateString(sortedList));
         text.setEditable(false);
@@ -51,9 +51,8 @@ public class OutputGUI extends JFrame implements AusgabeStrategy
         });
     }
 
-    public String generateString(MapFrame mapFrame)
+    public String generateString(Map<String, List<String>> stringListMap)
     {
-        Map<String, List<String>> stringListMap = mapFrame.stringMap;
         StringBuilder mainString = new StringBuilder();
 
         for(Map.Entry<String, List<String>> entry : stringListMap.entrySet())
@@ -70,23 +69,6 @@ public class OutputGUI extends JFrame implements AusgabeStrategy
         return mainString.toString();
     }
 
-    // Unnötig
-    public String generateString(Map<Satellite, List<Satellite.Channel>> map)
-    {
-        StringBuilder mainString = new StringBuilder();
 
-        for(Map.Entry<Satellite, List<Satellite.Channel>> entry : map.entrySet())
-        {
-            mainString.append(entry.getKey().toString());
-            mainString.append("\n");
-            for(Satellite.Channel channel: entry.getValue())
-            {
-                mainString.append("---\t" + channel.toString());
-                mainString.append("\n");
-            }
-        }
-
-        return mainString.toString();
-    }
 
 }

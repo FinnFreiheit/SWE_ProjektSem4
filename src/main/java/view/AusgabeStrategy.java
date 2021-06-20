@@ -1,6 +1,6 @@
 package view;
 
-import model.MapFrame;
+
 import model.Satellite;
 
 import java.util.List;
@@ -11,5 +11,5 @@ import java.util.Map;
  */
 public interface AusgabeStrategy
 {
-    public void outputMap(MapFrame map);
+    public void outputMap(Map<String, List<String>> map);
 }

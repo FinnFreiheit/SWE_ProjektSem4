@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import controller.AggregatStrategyFactory.AggregatContext;
 import controller.AggregatStrategyFactory.Aggregate.DeutscheTVSender;
 import model.CollectSatellitesAndChannelsInformation;
-import model.MapFrame;
+
 import model.Satellite;
 import model.SatelliteProperty;
 import org.junit.Before;
@@ -22,6 +22,8 @@ import java.util.Map;
  */
 public class AppTest
 {
+
+
     String property;
     String[] value;
 
@@ -95,10 +97,11 @@ public class AppTest
         aggregatContext.setStrategy(deutscheTVSenderAgg);
         deutscheTVSenderAgg.setPathInformation("src/test/java/org/testResources/testSatellites.json");
 
-        MapFrame deutscheTVSender = aggregatContext.aggregatAnwenden();
+        Map<String, List<String>> deutscheTVSender = aggregatContext.aggregatAnwenden();
 
+        /*
 
-        for (Map.Entry<Satellite, List<Satellite.Channel>> entry : deutscheTVSender.map.entrySet())
+        for (Map.Entry<Satellite, List<Satellite.Channel>> entry : deutscheTVSender.entrySet())
         {
             Satellite satellite = entry.getKey();
             List<Satellite.Channel> channels = entry.getValue();
@@ -111,6 +114,12 @@ public class AppTest
         }
 
 
+    }
+
+
+
+         */
+        //obacht
     }
 
 

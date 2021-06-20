@@ -1,6 +1,6 @@
 package controller.AggregatStrategyFactory;
 
-import model.MapFrame;
+
 import model.Satellite;
 
 import java.util.List;
@@ -20,7 +20,7 @@ public class AggregatContext
      *
      * @return the map
      */
-    public MapFrame aggregatAnwenden(){
+    public Map<String, List<String>> aggregatAnwenden(){
         return aggregatStrategy.executeAlgorithm();
     }
 

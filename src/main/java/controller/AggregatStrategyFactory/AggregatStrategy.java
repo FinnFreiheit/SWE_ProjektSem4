@@ -1,6 +1,6 @@
 package controller.AggregatStrategyFactory;
 
-import model.MapFrame;
+
 import model.Satellite;
 
 import java.util.List;
@@ -13,5 +13,6 @@ import java.util.Map;
  */
 public interface AggregatStrategy
 {
-    public MapFrame executeAlgorithm();
+    public Map<String, List<String>> executeAlgorithm();
+    public  Map<String, List<String>> getStringMap(Map<Satellite, List<Satellite.Channel>> map);
 }

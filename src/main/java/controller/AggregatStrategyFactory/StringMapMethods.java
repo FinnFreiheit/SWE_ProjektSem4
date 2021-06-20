@@ -1,11 +1,13 @@
-package model;
+package controller.AggregatStrategyFactory;
+
+import model.Satellite;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class MapFrame
+public class StringMapMethods
 {
     public Map<Satellite, List<Satellite.Channel>> map;
     public Map<String, List<String>> stringMap;
@@ -13,13 +15,13 @@ public class MapFrame
     /* Konstruktor überladen mit einer anderen Map,
         getStringMap überladen mit der Map. Aber an sich alles scheiße.
      */
-    public MapFrame(Map<Satellite, List<Satellite.Channel>> map)
+    public StringMapMethods(Map<Satellite, List<Satellite.Channel>> map)
     {
         this.map = map;
         this.stringMap = this.getStringMap(map);
     }
 
-    public MapFrame(Map<Satellite, List<Satellite.Channel>> map, String type)
+    public StringMapMethods(Map<Satellite, List<Satellite.Channel>> map, String type)
     {
         this.map = map;
         this.stringMap = this.getSatelliteMapToChannelCount(map);
