@@ -12,9 +12,6 @@ import java.util.Map;
 public class OutputGUI extends JFrame implements AusgabeStrategy
 {
     String[] columnNames;
-    Object[][] arr;
-    Object[][] array;
-
     JPanel panel;
     JScrollPane scrollPane;
 
@@ -36,7 +33,7 @@ public class OutputGUI extends JFrame implements AusgabeStrategy
     @Override
     public void outputMap(MapFrame sortedList)
     {
-        JTextArea text = new JTextArea(generateString(sortedList.map));
+        JTextArea text = new JTextArea(generateString(sortedList));
         text.setEditable(false);
         scrollPane = new JScrollPane(text);
 
@@ -54,6 +51,26 @@ public class OutputGUI extends JFrame implements AusgabeStrategy
         });
     }
 
+    public String generateString(MapFrame mapFrame)
+    {
+        Map<String, List<String>> stringListMap = mapFrame.stringMap;
+        StringBuilder mainString = new StringBuilder();
+
+        for(Map.Entry<String, List<String>> entry : stringListMap.entrySet())
+        {
+            mainString.append(entry.getKey());
+            mainString.append("\n");
+            for( String string : entry.getValue())
+            {
+                mainString.append("---\t").append(string);
+                mainString.append("\n");
+            }
+        }
+
+        return mainString.toString();
+    }
+
+    // Unnötig
     public String generateString(Map<Satellite, List<Satellite.Channel>> map)
     {
         StringBuilder mainString = new StringBuilder();
@@ -64,13 +81,12 @@ public class OutputGUI extends JFrame implements AusgabeStrategy
             mainString.append("\n");
             for(Satellite.Channel channel: entry.getValue())
             {
-               mainString.append("---\t" + channel.toString());
-               mainString.append("\n");
+                mainString.append("---\t" + channel.toString());
+                mainString.append("\n");
             }
         }
 
         return mainString.toString();
     }
-
 
 }
