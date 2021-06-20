@@ -1,25 +1,23 @@
 package org;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-
 import controller.AggregatStrategyFactory.AggregatContext;
 import controller.AggregatStrategyFactory.Aggregate.DeutscheTVSender;
+import controller.AggregatStrategyFactory.Aggregate.TransponderAnzahlSender;
 import model.CollectSatellitesAndChannelsInformation;
 import model.Satellite;
 import model.SatelliteProperty;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;
 
+import static org.junit.Assert.assertEquals;
+
 /**
- * Unit test for simple App.
+ * Unit Test für den Fall einer leeren JSON Input File.
  */
-public class AppTest
+public class AppTestEmpty
 {
     String property;
     String[] value;
@@ -37,7 +35,7 @@ public class AppTest
         this.value = new String[]{"deutsch"};
 
         this.satellitesAndChannelsInformation =
-                new CollectSatellitesAndChannelsInformation("src/test/java/org/testResources/testSatellites.json");
+                new CollectSatellitesAndChannelsInformation("src/test/java/org/testResources/testSatellitesEmpty.json");
         this.satelliteProperty =
                 new SatelliteProperty(this.property, this.value, this.satellitesAndChannelsInformation);
 
@@ -52,8 +50,7 @@ public class AppTest
     public void getSatelliteInfosAndWriteIntoClasses()
     {
         Satellite[] satellites = this.satellitesAndChannelsInformation.createSatelliteArray();
-        assertEquals(1,satellites.length);
-        assertEquals(3,satellites[0].getChannels().length);
+        assertEquals(0,satellites.length);
     }
 
     /**
@@ -63,19 +60,7 @@ public class AppTest
     @Test
     public void sattelitePropertyTest()
     {
-        for (Map.Entry<Satellite, List<Satellite.Channel>> entry : satelliteChannelMap.entrySet())
-        {
-            Satellite satellite = entry.getKey();
-            List<Satellite.Channel> channels = entry.getValue();
-
-            assertEquals(satellite.get("sat"), "sat");
-
-            assertEquals(2,channels.size());
-
-            assertEquals("Radio-Channel-ger", channels.get(0).get("name"));
-            assertEquals("TV-Channel-ger", channels.get(1).get("name"));
-        }
-
+        assertEquals(0,satelliteChannelMap.entrySet().size());
 
     }
 
@@ -89,25 +74,14 @@ public class AppTest
     {
         AggregatContext aggregatContext = new AggregatContext();
 
-        DeutscheTVSender deutscheTVSenderAgg = new DeutscheTVSender();
+        TransponderAnzahlSender transponderAnzahlSenderAgg = new TransponderAnzahlSender();
 
-        aggregatContext.setStrategy(deutscheTVSenderAgg);
-        deutscheTVSenderAgg.setPathInformation("src/test/java/org/testResources/testSatellites.json");
+        aggregatContext.setStrategy(transponderAnzahlSenderAgg);
+        transponderAnzahlSenderAgg.setPathInformation("src/test/java/org/testResources/testSatellitesEmpty.json");
 
-        Map<Satellite, List<Satellite.Channel>> deutscheTVSender = aggregatContext.aggregatAnwenden();
+        Map<Satellite, List<Satellite.Channel>> transponderAnzahlSender = aggregatContext.aggregatAnwenden();
 
-
-        for (Map.Entry<Satellite, List<Satellite.Channel>> entry : deutscheTVSender.entrySet())
-        {
-            Satellite satellite = entry.getKey();
-            List<Satellite.Channel> channels = entry.getValue();
-
-            assertEquals("sat", satellite.get("sat"));
-
-            assertEquals(1,channels.size());
-
-            assertEquals("TV-Channel-ger", channels.get(0).get("name"));
-        }
+        assertEquals(0,transponderAnzahlSender.entrySet().size());
 
 
     }

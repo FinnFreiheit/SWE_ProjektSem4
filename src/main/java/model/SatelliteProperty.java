@@ -79,8 +79,12 @@ public class SatelliteProperty
                                 channelListTemp.add(channel);
                             }
                         }
-                        satelliteMapNew.put(satellite, channelListTemp);
-                    break;
+                        if(channelListTemp.size() != 0)
+                        {
+                            satelliteMapNew.put(satellite, channelListTemp);
+                        }
+
+                        break;
 
                     // Filterung nach Type (TV, Radio)
                     case "type":
@@ -96,6 +100,15 @@ public class SatelliteProperty
                             satelliteMapNew.put(satellite, channelListTemp);
                         }
                     break;
+                    // Filterung nach bestimmten Frequenzen
+                    case "sat":
+                        if (satellite.sat.toLowerCase().contains(value.toLowerCase()))
+                        {
+                            satelliteMapNew.put(satellite, channelList);
+                        }
+                    break;
+
+
                 }
             }
         }
