@@ -36,7 +36,7 @@ public class OutputGUI extends JFrame implements AusgabeStrategy
     @Override
     public void outputMap(MapFrame sortedList)
     {
-        JTextArea text = new JTextArea(generateString(sortedList.map));
+        JTextArea text = new JTextArea(generateString(sortedList));
         text.setEditable(false);
         scrollPane = new JScrollPane(text);
 
@@ -66,6 +66,25 @@ public class OutputGUI extends JFrame implements AusgabeStrategy
             {
                mainString.append("---\t" + channel.toString());
                mainString.append("\n");
+            }
+        }
+
+        return mainString.toString();
+    }
+
+    public String generateString(MapFrame mapFrame)
+    {
+        Map<String, List<String>> stringListMap = mapFrame.stringMap;
+        StringBuilder mainString = new StringBuilder();
+
+        for(Map.Entry<String, List<String>> entry : stringListMap.entrySet())
+        {
+            mainString.append(entry.getKey());
+            mainString.append("\n");
+            for( String string : entry.getValue())
+            {
+                mainString.append("---\t").append(string);
+                mainString.append("\n");
             }
         }
 
