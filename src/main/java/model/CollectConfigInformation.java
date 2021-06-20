@@ -19,10 +19,16 @@ public class CollectConfigInformation
     public CollectConfigInformation()
     {
         this.configJSONArray = ReadJSONFile.createJSONArrayListFromConfig("resources/config.json");
-        JSONObject configInfo = (JSONObject) this.configJSONArray.get(0);
-        this.satellitesPath = (String)configInfo.get("satellitesPath");
-        this.aggregat = (String)configInfo.get("aggregat");
-        this.output = (String)configInfo.get("output");
+        try
+        {
+            JSONObject configInfo = (JSONObject) this.configJSONArray.get(0);
+            this.satellitesPath = (String) configInfo.get("satellitesPath");
+            this.aggregat = (String) configInfo.get("aggregat");
+            this.output = (String) configInfo.get("output");
+        } catch (NullPointerException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -55,6 +61,10 @@ public class CollectConfigInformation
         return output;
     }
 
+    /**
+     * Satellitenpfad setzen
+     * @param satellitesPath neuer Pfad
+     */
     public void setSatellitesPath(String satellitesPath)
     {
         this.satellitesPath = satellitesPath;

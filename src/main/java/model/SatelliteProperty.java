@@ -11,19 +11,19 @@ public class SatelliteProperty
     String[] values;
     Map<Satellite, List<Satellite.Channel>> satelliteMap;
 
-    public SatelliteProperty(String property, String[] values, CollectSatellitesAndChannelsInformation ci)
+    public SatelliteProperty(String property, String[] values, CollectSatellitesAndChannelsInformation satelliteAndChannelInfo)
     {
         this.property = property;
         this.values = values;
-        this.satelliteMap = createNewMap(ci.createSatelliteChannelsMap(), ci);
+        this.satelliteMap = createNewMap(satelliteAndChannelInfo.createSatelliteChannelsMap(), satelliteAndChannelInfo);
     }
 
     public SatelliteProperty(Map<Satellite, List<Satellite.Channel>> baseMap, String property, String[] values,
-             CollectSatellitesAndChannelsInformation ci)
+             CollectSatellitesAndChannelsInformation satellitesAndChannelsInformation)
     {
         this.property = property;
         this.values = values;
-        this.satelliteMap = createNewMap(baseMap, ci);
+        this.satelliteMap = createNewMap(baseMap, satellitesAndChannelsInformation);
     }
 
     /**
@@ -133,33 +133,4 @@ public class SatelliteProperty
         return clone;
     }
 
-    /**
-     * Ausgabe eines SatelliteProperty Objektes auf der Konsole
-     */
-    public void print()
-    {
-        System.out.printf("%d Satelliten ", this.satelliteMap.size());
-        if(this.property.toLowerCase().equals("language"))
-        {
-            System.out.println("haben Sender in den Sprachen");
-            for(String value : this.values)
-            {
-                System.out.println("- " + value);
-            }
-        }
-        else if(this.property.toLowerCase().equals("type"))
-        {
-            if(this.values[0].toLowerCase().equals("tv")) System.out.println("haben TV-Sender ");
-            else System.out.println("haben Radio-Sender ");
-        }
-        System.out.println();
-        int i = 1;
-
-        System.out.println("Alle Satelliten : ");
-        for(Map.Entry<Satellite, List<Satellite.Channel>> entry : this.satelliteMap.entrySet())
-        {
-            Satellite satellite = entry.getKey();
-            satellite.print(entry.getValue());
-        }
-    }
 }

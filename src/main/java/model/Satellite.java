@@ -11,7 +11,7 @@ import java.util.Objects;
  * Verschachtelte Satellitenklasse. Beinhaltet alle Satellitenattribute und eine Channel Klasse mit
  * alles Channelattributen
  */
-public class Satellite implements Comparable<Satellite>, JSONWriteable {
+public class Satellite implements Comparable<Satellite>{
     String pol;
     String sat;
     String orbital;
@@ -63,32 +63,9 @@ public class Satellite implements Comparable<Satellite>, JSONWriteable {
    		return this.channels;
    	}
 
-	/**
-	 * Gibt eine Channel Liste auf der Konsole aus.
-	 * @param channelList
-	 */
-	public void print(List<Channel> channelList)
-	{
-		System.out.printf("%n%-14s %-10s %-6s %-8s %-8s %n",
-						  this.sat, this.orbital, this.pol, this.freq, this.sym);
-		for(Channel c : channelList)
-		{
-			System.out.printf("---------- %-22s %-8s %-8s %-8s %n", c.name, c.compression, c.enc, c.a_pid);
-		}
-	}
 
-	/**
-	 * gibt eine Satelliten auf der Konsole aus.
-	 */
-    public void print()
-    {
-        System.out.printf("%n%-14s %-10s %-6s %-8s %-8s %n",
-        		this.sat, this.orbital, this.pol, this.freq, this.sym);
-        for(Channel c : this.channels)
-        {
-            System.out.printf("---------- %-22s %-8s %-8s %-8s %n", c.name, c.compression, c.enc, c.a_pid);
-        }
-    }
+
+
 
 	/**
 	 * Erzeugt ein String aus einem Satellitenobjekt.
@@ -98,23 +75,6 @@ public class Satellite implements Comparable<Satellite>, JSONWriteable {
 	public String toString(){
    		return String.format("sat:%s,orbital:%s,pol:%s,freq:%s,sym:%s",
 							 this.sat, this.orbital, this.pol, this.freq, this.sym);
-	}
-
-
-	/**
-	 * Erzeugt ein StringArray mit Satellitenattrtibuten.
-	 * @return String[]
-	 */
-	public String[] toStringArray(){
-		return new String[]{this.sat, this.orbital, this.pol, this.freq, this.sym};
-	}
-
-	/**
-	 * Gibt die Attribute eines Satelliten zurück.
-	 * @return String[]
-	 */
-	public String[] getAttributs(){
-   		return new String[]{"sat","orbital","pol","freq","sym"};
 	}
 
 	/**
@@ -165,23 +125,11 @@ public class Satellite implements Comparable<Satellite>, JSONWriteable {
 		return Objects.hash(pol, sat, orbital, freq, sym);
 	}
 
-	/**
-	 * Erzeugt ein String, der den vorschriften der JSON-formatierung entspricht.
-	 * @return String
-	 */
-	public String toJSONString()
-	{
-		return "\n\t{\n" + "\t\t\"pol\": \"" + pol +'\"' + ",\n\t\t\"sat\": \"" + sat + '\"' + ",\n\t\t\"orbital\": \""
-				+ orbital + '\"' +",\n\t\t\"freq\": \"" + freq + '\"' + ",\n\t\t\"sym\": \"" + sym + '\"'
-				+ ",\n\t\t\"channels\": ";
-
-		//" + Arrays.toString(channels) + "\n\t}
-	}
 
 	/**
 	 * Verschachtelte Channel Klasse, enthält alle Channel Attribute
 	 */
-	public class Channel implements Comparable<Channel>, JSONWriteable{
+	public class Channel implements Comparable<Channel>{
 		String a_pid;
 		String name;
 		String res;
@@ -208,20 +156,6 @@ public class Satellite implements Comparable<Satellite>, JSONWriteable {
 			this.packge = (String) channel.get("package");
 			this.satellite = satellite;
 		}
-
-		/**
-		 * to String Methode welche die Channel Attribute in einem JSON String zurückgibt
-		 * @return formatted String
-		 */
-		public String toJSONString()
-		{
-			return "\n\t\t\t{\n" + "\t\t\t\t\"a_pid\": \"" + a_pid + '\"' + ",\n\t\t\t\t\"name\": \"" + name + '\"' + ",\n\t\t\t\t\"res\": \"" + res + '\"' +
-					",\n\t\t\t\t\"url\": \"" + url + '\"' + ",\n\t\t\t\t\"sid\": \"" + sid + '\"' + ",\n\t\t\t\t\"v_pid\": \"" + v_pid + '\"' +
-					",\n\t\t\t\t\"packge\": \"" +packge + '\"' + ",\n\t\t\t\t\"type\": \"" + type + '\"' + ",\n\t\t\t\t\"enc\": \"" + enc + '\"' +
-					",\n\t\t\t\t\"compression\": \"" +compression + '\"' + "\n\t\t\t},";
-		}
-
-
 
 		/**
 		 * Gibt je nach input String ein privates Attribut der Channel Klasse zurück
@@ -283,13 +217,6 @@ public class Satellite implements Comparable<Satellite>, JSONWriteable {
 			return this.name.hashCode();
 		}
 
-		/**
-		 * Channel ausgabe auf der Konsole
-		 */
-		public void print()
-		{
-			System.out.printf("--- %-22s %-8s %-8s %-8s %n", this.name, this.compression, this.enc, this.a_pid);
-		}
 
 		/**
 		 * Erzeugt ein String aus einem Channelobjekt
@@ -304,24 +231,6 @@ public class Satellite implements Comparable<Satellite>, JSONWriteable {
 										 "compression:%s", this.name,this.a_pid , this.res, this.url, this.sid,
 								 this.v_pid, this.packge, this.type, this.enc, this.compression);
 		}
-
-		/**
-		 * Erzeugt ein String[] aus Channelattributen.
-		 * @return String[] aus Channelattributen.
-		 */
-		public String[] toStringArray()
-		{
-			return new String[]{this.a_pid ,this.name, this.res, this.url, this.sid, this.v_pid, this.packge, this.type, this.enc, this.compression};
-		}
-
-		/**
-		 * gibt alle Channelattribute in einem Array zurück.
-		 * @return String[] alle Channelattribute in einem Array.
-		 */
-		public String[] getAttributs(){
-			return new String[]{"a_pid", "name", "res", "url", "sid", "v_pid", "packge", "type", "enc", "compression"};
-		}
-
 
 	}
 }

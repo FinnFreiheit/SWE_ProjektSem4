@@ -4,7 +4,7 @@
 # Komposide was machen oder nicht
 
 # GUI (Finn) ToString erledigt
-# JSON (Armin) erledigt
+# JSON (Armin) nicht erledigt
 
 # Aggregat (Sarah)
 
