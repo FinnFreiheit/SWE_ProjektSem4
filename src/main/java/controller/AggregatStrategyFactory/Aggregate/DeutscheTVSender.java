@@ -23,9 +23,7 @@ public class DeutscheTVSender  extends SuperAggregat implements AggregatStrategy
     }
 
     /**
-     * Legt das zweite zu filternde Attribute fest (TV-Sender) und gibt die
-     * gefilterte Map zurück
-     *
+     * Die Map wird nach den der Sprache: Deutsch und dem Typ: TV-Sender gefiltert.
      * @return gefilterte Satelliten Map mit deutschen TV-Sendern
      */
     @Override
