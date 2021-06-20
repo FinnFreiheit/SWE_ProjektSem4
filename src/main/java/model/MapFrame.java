@@ -19,7 +19,11 @@ public class MapFrame
         this.stringMap = this.getStringMap(map);
     }
 
-
+    /**
+     * erzeugt eine  Map key: String, value: String List.
+     * @param map die umzuwandelnde Map
+     * @return Map key: String, value: String List.
+     */
     public Map<String, List<String>> getStringMap(Map<Satellite, List<Satellite.Channel>> map)
     {
         Map<String, List<String>> mapString = new TreeMap<>();

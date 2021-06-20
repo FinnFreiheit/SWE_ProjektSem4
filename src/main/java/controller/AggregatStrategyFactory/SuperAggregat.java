@@ -31,6 +31,11 @@ public abstract class SuperAggregat
     }
 
 
+    /**
+     * Die Map wird das erstemal gefiltert. Nach einer Eigenschaft.
+     * @param Property die zu filternde Eigenschaft
+     * @param Value die Werte der zu filternden Eigenschaft
+     */
     public void firstFilter(String Property, String[] Value)
     {
 
@@ -38,6 +43,11 @@ public abstract class SuperAggregat
     }
 
 
+    /**
+     * Die Satelliten und Channel Map wird nach einer Bestimmten Eigenschaft gefiltert.
+     * @param Property die zu filternde Eigenschaft
+     * @param Value die Werte der zu filternden Eigenschaft
+     */
     public void filter(String Property, String[] Value)
     {
         Map<Satellite, List<Satellite.Channel>> filteredSatellitesAndChannelsInfo =
@@ -53,6 +63,7 @@ public abstract class SuperAggregat
     }
 
     /**
+     * Aendert den Dateiphad der auszuwertenden Satelliten JSON-Datei.
      * @param satellitesPath
      */
     public void setPathInformation(String satellitesPath){

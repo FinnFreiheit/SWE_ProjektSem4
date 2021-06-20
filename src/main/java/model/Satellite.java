@@ -54,11 +54,19 @@ public class Satellite implements Comparable<Satellite>, JSONWriteable {
 		return "";
 	}
 
+	/**
+	 * gibt ein Array mit den Channels zurück
+	 * @return Channel Array
+	 */
    	public Channel[] getChannels()
    	{
    		return this.channels;
    	}
 
+	/**
+	 * Gibt eine Channel Liste auf der Konsole aus.
+	 * @param channelList
+	 */
 	public void print(List<Channel> channelList)
 	{
 		System.out.printf("%n%-14s %-10s %-6s %-8s %-8s %n",
@@ -69,6 +77,9 @@ public class Satellite implements Comparable<Satellite>, JSONWriteable {
 		}
 	}
 
+	/**
+	 * gibt eine Satelliten auf der Konsole aus.
+	 */
     public void print()
     {
         System.out.printf("%n%-14s %-10s %-6s %-8s %-8s %n",
@@ -79,16 +90,28 @@ public class Satellite implements Comparable<Satellite>, JSONWriteable {
         }
     }
 
-    public String toString(){
+	/**
+	 * Erzeugt ein String aus einem Satellitenobjekt.
+	 * @return String
+	 */
+	public String toString(){
    		return String.format("%n%-14s %-10s %-6s %-8s %-8s %n",
 							 this.sat, this.orbital, this.pol, this.freq, this.sym);
 	}
 
 
+	/**
+	 * Erzeugt ein StringArray mit Satellitenattrtibuten.
+	 * @return String[]
+	 */
 	public String[] toStringArray(){
 		return new String[]{this.sat, this.orbital, this.pol, this.freq, this.sym};
 	}
 
+	/**
+	 * Gibt die Attribute eines Satelliten zurück.
+	 * @return String[]
+	 */
 	public String[] getAttributs(){
    		return new String[]{"sat","orbital","pol","freq","sym"};
 	}
@@ -141,7 +164,10 @@ public class Satellite implements Comparable<Satellite>, JSONWriteable {
 		return Objects.hash(pol, sat, orbital, freq, sym);
 	}
 
-
+	/**
+	 * Erzeugt ein String, der den vorschriften der JSON-formatierung entspricht.
+	 * @return String
+	 */
 	public String toJSONString()
 	{
 		return "\n\t{\n" + "\t\t\"pol\": \"" + pol +'\"' + ",\n\t\t\"sat\": \"" + sat + '\"' + ",\n\t\t\"orbital\": \""
@@ -256,19 +282,36 @@ public class Satellite implements Comparable<Satellite>, JSONWriteable {
 			return this.name.hashCode();
 		}
 
+		/**
+		 * Channel ausgabe auf der Konsole
+		 */
 		public void print()
 		{
 			System.out.printf("--- %-22s %-8s %-8s %-8s %n", this.name, this.compression, this.enc, this.a_pid);
 		}
+
+		/**
+		 * Erzeugt ein String aus einem Channelobjekt
+		 * @return String
+		 */
 		public String toString()
 		{
 			return String.format("%-22s %-8s %-8s %-8s %n", this.name, this.compression, this.enc, this.a_pid);
 		}
 
+		/**
+		 * Erzeugt ein String[] aus Channelattributen.
+		 * @return String[] aus Channelattributen.
+		 */
 		public String[] toStringArray()
 		{
 			return new String[]{this.a_pid ,this.name, this.res, this.url, this.sid, this.v_pid, this.packge, this.type, this.enc, this.compression};
 		}
+
+		/**
+		 * gibt alle Channelattribute in einem Array zurück.
+		 * @return String[] alle Channelattribute in einem Array.
+		 */
 		public String[] getAttributs(){
 			return new String[]{"a_pid", "name", "res", "url", "sid", "v_pid", "packge", "type", "enc", "compression"};
 		}
