@@ -120,6 +120,9 @@ public class SatelliteProperty
         return clone;
     }
 
+    /**
+     * Ausgabe eines SatelliteProperty Objektes auf der Konsole
+     */
     public void print()
     {
         System.out.printf("%d Satelliten ", this.satelliteMap.size());
@@ -139,19 +142,6 @@ public class SatelliteProperty
         System.out.println();
         int i = 1;
 
-        /*
-        Set<Satellite> setSatellites = new TreeSet<>();
-        for(Map.Entry<Satellite, List<Satellite.Channel>> entry : this.satelliteMap.entrySet())
-        {
-            //Satellite.Channel channel = entry.getKey();
-            //System.out.printf("%3d ", i++);
-            //channel.print();
-            Satellite satellites = entry.getKey();
-            setSatellites.add(satellites);
-
-        }
-        */
-
         System.out.println("Alle Satelliten : ");
         for(Map.Entry<Satellite, List<Satellite.Channel>> entry : this.satelliteMap.entrySet())
         {
@@ -159,5 +149,4 @@ public class SatelliteProperty
             satellite.print(entry.getValue());
         }
     }
-
 }

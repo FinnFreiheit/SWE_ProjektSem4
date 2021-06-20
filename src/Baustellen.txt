@@ -13,3 +13,5 @@
 # UML
 # (Fehlerbehandlung) (Config, Satellite)
 # Map -> Satellite Property
+
+# Satellite Property
