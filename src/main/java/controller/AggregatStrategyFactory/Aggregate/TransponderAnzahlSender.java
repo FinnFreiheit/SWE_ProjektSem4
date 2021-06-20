@@ -2,6 +2,7 @@ package controller.AggregatStrategyFactory.Aggregate;
 
 import controller.AggregatStrategyFactory.AggregatStrategy;
 import controller.AggregatStrategyFactory.SuperAggregat;
+import model.MapFrame;
 import model.Satellite;
 
 import java.util.List;
@@ -26,10 +27,10 @@ public class TransponderAnzahlSender extends SuperAggregat implements AggregatSt
      * @return gefilterte Satelliten Map mit Radio Sendern von Transponern eines Satelliten
      */
     @Override
-    public Map<Satellite, List<Satellite.Channel>> executeAlgorithm()
+    public MapFrame executeAlgorithm()
     {
         firstFilter("sat", new String[]{"ABS-2A"});
         filter("type",new String[]{"TV"});
-        return getSatelliteProperty().getSatelliteMap();
+        return new MapFrame(getSatelliteProperty().getSatelliteMap());
     }
 }

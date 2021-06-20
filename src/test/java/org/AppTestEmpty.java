@@ -4,6 +4,7 @@ import controller.AggregatStrategyFactory.AggregatContext;
 import controller.AggregatStrategyFactory.Aggregate.DeutscheTVSender;
 import controller.AggregatStrategyFactory.Aggregate.TransponderAnzahlSender;
 import model.CollectSatellitesAndChannelsInformation;
+import model.MapFrame;
 import model.Satellite;
 import model.SatelliteProperty;
 import org.junit.Before;
@@ -79,9 +80,9 @@ public class AppTestEmpty
         aggregatContext.setStrategy(transponderAnzahlSenderAgg);
         transponderAnzahlSenderAgg.setPathInformation("src/test/java/org/testResources/testSatellitesEmpty.json");
 
-        Map<Satellite, List<Satellite.Channel>> transponderAnzahlSender = aggregatContext.aggregatAnwenden();
+        MapFrame transponderAnzahlSender = aggregatContext.aggregatAnwenden();
 
-        assertEquals(0,transponderAnzahlSender.entrySet().size());
+        assertEquals(0,transponderAnzahlSender.map.entrySet().size());
 
 
     }
