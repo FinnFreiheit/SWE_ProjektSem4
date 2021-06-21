@@ -4,7 +4,7 @@
  Im folgenden Projekt wird eine JSON-Datei mit Satelliten-Informationen eingelesen und aggregiert. Zum Aggregieren stehen 
  zwei Klassen zur Verfügung. In der Klasse DeutscheTVSender werden alle Satelliten zusammengetragen, die deutschsprachige 
  TV-Sender ausstrahlen. 
- In der Klasse TransponderAnzahlSender zählt, wie viele TV- und Radiosender der Satellit mit dem Namen `ABS-2A` verfügt. 
+Die Klasse TransponderAnzahlSender zählt, wie viele TV- und Radiosender der Satellit mit dem Namen `ABS-2A` verfügt. 
  
  Neben den Klassen zur Aggregation, verfügt das Projekt auch Klassen zur Ausgabe der Aggregation. Die Klasse `OutputGUI` 
  gibt die aggregierten Informationen auf einer grafischen Oberfläche aus.
@@ -99,6 +99,12 @@ auf den Pfad der `testSatellites.json` geändert werden.
 
 Nach Änderung des Pfades können die Packages jeweils gesondert ausgeführt werden.
 
+# Stile 
+
+Das Projekt ist in Model-View-Controller aufgeteilt. 
+Doppelter Code wurde unteranderem durch die Verwendung der Abstracten-Klasse SuperAggregat vermieden. 
+Durch die Designpattern Stategy und Factory ist das Projekt beiebig skalierbar. 
+
 ## Contributors
 
 Das Projekt wurde bearbeitet von:
@@ -106,3 +112,4 @@ Das Projekt wurde bearbeitet von:
     -Finn Freiheit,         Matr.Nr: 2533282,   Email: inf19044@lehre.dhbw-stuttgart.de
     -Armin Vosoghi Marand,  Matr.Nr: 9747848,   Email: inf19218@lehre.dhbw-stuttgart.de
     -Sarah Kröll,           Matr.Nr: 9875642,   Email: inf19221@lehre.dhbw-stuttgart.de
+
