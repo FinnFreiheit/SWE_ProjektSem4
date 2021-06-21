@@ -228,7 +228,7 @@ public class Satellite implements Comparable<Satellite>{
 		public String toString()
 		{
 			return String.format("name|%s,a_pid|%s,res|%s,url|%s,sid|%s,v_pid|%s,packge|%s,type|%s,enc|%s," +
-										 "compression:%s", this.name,this.a_pid , this.res, this.url, this.sid,
+										 "compression|%s", this.name,this.a_pid , this.res, this.url, this.sid,
 								 this.v_pid, this.packge, this.type, this.enc, this.compression);
 		}
 

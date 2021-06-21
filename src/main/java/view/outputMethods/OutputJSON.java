@@ -10,6 +10,7 @@ import view.AusgabeStrategy;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +22,6 @@ public class OutputJSON implements AusgabeStrategy {
     JSONObject sortedListJSON;
     private static FileWriter file;
 
-
     /**
      * Schreibt die gefilterte Map in eine JSON Datei
      *
@@ -29,6 +29,30 @@ public class OutputJSON implements AusgabeStrategy {
      */
     @Override
     public void outputMap(Map<String, List<String>> sortedList) {
+        JSONArray jsonArraySat = new JSONArray();
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("[");
+        for(Map.Entry<String, List<String>> entry : sortedList.entrySet()){
+           StringBuilder satString = jsonString(entry.getKey());
+           satString.append(",\"channel\":[");
+           for(String channel : entry.getValue()){
+               String channelSB = jsonString(channel) +
+                       "},";
+               satString.append(channelSB);
+           }
+           satString.setLength(satString.length()-1);
+           satString.append("]},");
+           stringBuilder.append(satString);
+        }
+        stringBuilder.setLength(stringBuilder.length()-1);
+        stringBuilder.append("]");
+        try {
+            file = new FileWriter("resources/sortedSatellites.json");
+            file.write(String.valueOf(stringBuilder));
+            file.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         /*
       JSONArray js = maptoString(sortedList);
 
@@ -43,15 +67,24 @@ public class OutputJSON implements AusgabeStrategy {
 
          */
     }
+    public StringBuilder jsonString(String toJsonString){
+        StringBuilder stringbuilder = new StringBuilder("{\"");
+        stringbuilder.append(toJsonString);
+        stringbuilder = new StringBuilder(stringbuilder.toString().replace("|" , "\":\"")
+                .replace(",","\",\""));
+        stringbuilder.append("\"");
+        return stringbuilder;
+    }
 
     /**
      * Wandelt die in der Map gespeicherten Informationen in einen JSON kompatiblen String um.
      *
-     * @param sortedList sortierte Map mit allen gefilterten Satelliten und Channels
      * @return JSON-String der in der Map enthaltenen Informationen
      */
-    public JSONArray maptoString(Map<Satellite, List<Satellite.Channel>> sortedList)
+    public JSONArray maptoString()
     {
+
+
         /*
         JSONArray jsonArraySat = new JSONArray();
         for (Map.Entry<Satellite, List<Satellite.Channel>> entry : sortedList.entrySet()) {
