@@ -57,12 +57,12 @@ public class OutputGUI extends JFrame implements AusgabeStrategy
 
         for(Map.Entry<String, List<String>> entry : stringListMap.entrySet())
         {
-            String stringMod = entry.getKey().replace(":", ": ");
+            String stringMod = entry.getKey().replace("|", ": ");
             mainString.append(stringMod.replace(",",", "));
             mainString.append("\n");
             for( String string : entry.getValue())
             {
-                String stringModChannel = string.replace(":",": ");
+                String stringModChannel = string.replace("|",": ");
                 mainString.append("---\t").append(stringModChannel.replace(",",", "));
                 mainString.append("\n");
             }
