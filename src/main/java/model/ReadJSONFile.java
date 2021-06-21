@@ -68,8 +68,7 @@ public class ReadJSONFile {
         return null;
     }
     
-    // -------------------------- Konsolenausgabe unsortiert - alle Satelliten -------------------
-    
+
     /**
      * gibt das JSONArray aller Satelliten auf die Konsole aus
      * ruft für jeden Satelliten printOneSatelliteOnConsole() auf, 

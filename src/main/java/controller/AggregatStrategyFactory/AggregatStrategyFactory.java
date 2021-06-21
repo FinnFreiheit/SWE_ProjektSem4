@@ -7,7 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 /**
  * In der Faktory wird das Configfile gelesen. Die Aggregat Information wird verwendet.
  * es wird eine Instanz der Aggregatklasse initialisiert vom typ Strategy. Diese Instanz hat die Methode
- * executeAlgorithm() implementiert.
+ * executeAlgorithm() und getStringMap implementiert.
  */
 public class AggregatStrategyFactory
 {
