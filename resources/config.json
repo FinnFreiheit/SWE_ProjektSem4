@@ -1,6 +1,6 @@
 [
   {
-    "satellitesPath" : "src/test/java/org/Aequivalenzklasse_emptyJSON/testResources/testSatellitesEmpty.json",
+    "satellitesPath" : "resources/satellites.json",
     "aggregat" : "controller.AggregatStrategyFactory.Aggregate.TransponderAnzahlSender",
     "output" : "view.outputMethods.OutputGUI"
   }

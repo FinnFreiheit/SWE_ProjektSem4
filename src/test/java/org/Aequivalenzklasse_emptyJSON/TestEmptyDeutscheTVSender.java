@@ -38,7 +38,7 @@ public class TestEmptyDeutscheTVSender
         this.value = new String[]{"deutsch"};
 
         this.satellitesAndChannelsInformation =
-                new CollectSatellitesAndChannelsInformation("src/test/java/org/Aequivalenzklasse_emptyJSON/testResources/testSatellitesEmpty.json");
+                new CollectSatellitesAndChannelsInformation("src/test/java/org/Aequivalenzklasse_emptyJSON/testResources/testSatellites.json");
         this.satelliteProperty =
                 new SatelliteProperty(this.property, this.value, this.satellitesAndChannelsInformation);
 
@@ -58,7 +58,7 @@ public class TestEmptyDeutscheTVSender
         DeutscheTVSender deutscheTVSenderAgg = new DeutscheTVSender();
 
         aggregatContext.setStrategy(deutscheTVSenderAgg);
-        deutscheTVSenderAgg.setPathInformation("src/test/java/org/Aequivalenzklasse_emptyJSON/testResources/testSatellitesEmpty.json");
+        deutscheTVSenderAgg.setPathInformation("src/test/java/org/Aequivalenzklasse_emptyJSON/testResources/testSatellites.json");
 
         Map<String, List<String>> deutscheTVSender = aggregatContext.aggregatAnwenden();
 

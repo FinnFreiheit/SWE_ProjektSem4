@@ -1,10 +1,6 @@
 package org.Aequivalenzklasse_emptyJSON;
 
-import controller.AggregatStrategyFactory.AggregatContext;
-import controller.AggregatStrategyFactory.Aggregate.DeutscheTVSender;
-import controller.AggregatStrategyFactory.Aggregate.TransponderAnzahlSender;
 import model.CollectSatellitesAndChannelsInformation;
-
 import model.Satellite;
 import model.SatelliteProperty;
 import org.junit.Before;
@@ -38,7 +34,7 @@ public class AppTestEmpty
         this.value = new String[]{""};
 
         this.satellitesAndChannelsInformation =
-                new CollectSatellitesAndChannelsInformation("src/test/java/org/Aequivalenzklasse_emptyJSON/testResources/testSatellitesEmpty.json");
+                new CollectSatellitesAndChannelsInformation("src/test/java/org/Aequivalenzklasse_emptyJSON/testResources/testSatellites.json");
         this.satelliteProperty =
                 new SatelliteProperty(this.property, this.value, this.satellitesAndChannelsInformation);
 

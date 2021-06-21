@@ -39,7 +39,7 @@ public class TestEmptyTransponderAnzahlSender
         this.value = new String[]{"ABS-2A"};
 
         this.satellitesAndChannelsInformation =
-                new CollectSatellitesAndChannelsInformation("src/test/java/org/Aequivalenzklasse_emptyJSON/testResources/testSatellitesEmpty.json");
+                new CollectSatellitesAndChannelsInformation("src/test/java/org/Aequivalenzklasse_emptyJSON/testResources/testSatellites.json");
         this.satelliteProperty =
                 new SatelliteProperty(this.property, this.value, this.satellitesAndChannelsInformation);
 
@@ -60,7 +60,7 @@ public class TestEmptyTransponderAnzahlSender
         TransponderAnzahlSender transponderAnzahlSenderAgg = new TransponderAnzahlSender();
 
         aggregatContext.setStrategy(transponderAnzahlSenderAgg);
-        transponderAnzahlSenderAgg.setPathInformation("src/test/java/org/Aequivalenzklasse_emptyJSON/testResources/testSatellitesEmpty.json");
+        transponderAnzahlSenderAgg.setPathInformation("src/test/java/org/Aequivalenzklasse_emptyJSON/testResources/testSatellites.json");
 
         Map<String, List<String>> transponderAnzahlSender= aggregatContext.aggregatAnwenden();
 

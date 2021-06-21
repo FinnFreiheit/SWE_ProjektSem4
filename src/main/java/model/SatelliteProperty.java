@@ -83,7 +83,6 @@ public class SatelliteProperty
                         {
                             satelliteMapNew.put(satellite, channelListTemp);
                         }
-
                         break;
 
                     // Filterung nach Type (TV, Radio)
