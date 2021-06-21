@@ -1,10 +1,9 @@
-package org;
+package org.Aequivalenzklasse_emptyJSON;
 
 import controller.AggregatStrategyFactory.AggregatContext;
 import controller.AggregatStrategyFactory.Aggregate.DeutscheTVSender;
 import controller.AggregatStrategyFactory.Aggregate.TransponderAnzahlSender;
 import model.CollectSatellitesAndChannelsInformation;
-
 import model.Satellite;
 import model.SatelliteProperty;
 import org.junit.Before;
@@ -16,10 +15,12 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Unit Test für den Fall einer leeren JSON Input File.
+ * Unit test für den Fall einer leeren Input JSON
  */
-public class AppTestEmpty
+public class TestEmptyTransponderAnzahlSender
 {
+
+
     String property;
     String[] value;
 
@@ -28,15 +29,17 @@ public class AppTestEmpty
 
     Map<Satellite, List<Satellite.Channel>> satelliteChannelMap;
 
-
+    /**
+     * Einlesen aller Einträge der Test Eingabe JSON. Es wird eine satelliteChannelMap erstellt
+     */
     @Before
     public void init()
     {
-        this.property = "language";
-        this.value = new String[]{"deutsch"};
+        this.property = "sat";
+        this.value = new String[]{"ABS-2A"};
 
         this.satellitesAndChannelsInformation =
-                new CollectSatellitesAndChannelsInformation("src/test/java/org/testResources/testSatellitesEmpty.json");
+                new CollectSatellitesAndChannelsInformation("src/test/java/org/Aequivalenzklasse_emptyJSON/testResources/testSatellitesEmpty.json");
         this.satelliteProperty =
                 new SatelliteProperty(this.property, this.value, this.satellitesAndChannelsInformation);
 
@@ -45,30 +48,9 @@ public class AppTestEmpty
     }
 
     /**
-     * Test: Dummmy Satteliten JSON einlesen. Erwartet ein Satelliten mit drei Channel.
-     */
-    @Test
-    public void getSatelliteInfosAndWriteIntoClasses()
-    {
-        Satellite[] satellites = this.satellitesAndChannelsInformation.createSatelliteArray();
-        assertEquals(0,satellites.length);
-    }
-
-    /**
-     * Liste wird nach Sprache Deutsch Sortiert. Erwarten ein Satellite mit Name=sat.
-     * Erwarten zwei Channel mit Name=Radio-Channel-ger
-     */
-    @Test
-    public void sattelitePropertyTest()
-    {
-        assertEquals(0,satelliteChannelMap.entrySet().size());
-
-    }
-
-    /**
-     * Funktioniert nicht, da Map in Super erstellt wird, bevor wir Path ändern können. Somit wird nie die Test JSON
-     * ausgelsen. Sondern immer Original.
-     * Könnten auch aufs Original testen. Ist ansich wumpe.
+     * Es wird das Aggregat getestest, welches alle Transponder des Satelliten mit Namen ABS-2A filtert.
+     * Es wird aus der Map der Test Input JSON gefiltert.
+     * Erwartet werden 0 Einträge
      */
     @Test
     public void aggregat()
@@ -78,12 +60,11 @@ public class AppTestEmpty
         TransponderAnzahlSender transponderAnzahlSenderAgg = new TransponderAnzahlSender();
 
         aggregatContext.setStrategy(transponderAnzahlSenderAgg);
-        transponderAnzahlSenderAgg.setPathInformation("src/test/java/org/testResources/testSatellitesEmpty.json");
+        transponderAnzahlSenderAgg.setPathInformation("src/test/java/org/Aequivalenzklasse_emptyJSON/testResources/testSatellitesEmpty.json");
 
-        Map<String, List<String>> transponderAnzahlSender = aggregatContext.aggregatAnwenden();
+        Map<String, List<String>> transponderAnzahlSender= aggregatContext.aggregatAnwenden();
 
         assertEquals(0,transponderAnzahlSender.entrySet().size());
-
 
     }
 
