@@ -107,6 +107,12 @@ public class SatelliteProperty
                             satelliteMapNew.put(satellite, channelList);
                         }
                     break;
+                    // keine Filterung
+                    case "all":
+
+                        satelliteMapNew.put(satellite, channelList);
+
+                    break;
 
 
                 }

@@ -1,0 +1,92 @@
+[
+  {
+    "pol": "pol",
+    "sat": "ABS-2A",
+    "orbital": "orbital",
+    "freq": "freq",
+    "sym": "sym",
+    "channels": [
+      {
+        "sid": "sid",
+        "type": "TV",
+        "name": "TV-Channel-eng",
+        "v_pid": "v_pid",
+        "a_pid": "a_pid eng",
+        "compression": "compression",
+        "url": "url",
+        "enc": "enc",
+        "package": "package",
+        "res": "res"
+      },
+      {
+        "sid": "sid2",
+        "type": "R",
+        "name": "Radio-Channel-ger",
+        "v_pid": "v_pid2",
+        "a_pid": "a_pid2 ger",
+        "compression": "compression2",
+        "url": "url2",
+        "enc": "enc2",
+        "package": "package2",
+        "res": "res2"
+      },
+      {
+        "sid": "sid3",
+        "type": "TV",
+        "name": "TV-Channel-ger",
+        "v_pid": "v_pid3",
+        "a_pid": "a_pid3 ger",
+        "compression": "compression3",
+        "url": "url3",
+        "enc": "enc3",
+        "package": "package3",
+        "res": "res3"
+      }
+    ]
+  },
+  {
+    "pol": "pol",
+    "sat": "ABS-2A",
+    "orbital": "orbital",
+    "freq": "freq2",
+    "sym": "sym",
+    "channels": [
+      {
+        "sid": "sid",
+        "type": "TV",
+        "name": "TV-Channel-eng",
+        "v_pid": "v_pid",
+        "a_pid": "a_pid eng",
+        "compression": "compression",
+        "url": "url",
+        "enc": "enc",
+        "package": "package",
+        "res": "res"
+      },
+      {
+        "sid": "sid2",
+        "type": "TV",
+        "name": "TV-Channel-eng",
+        "v_pid": "v_pid2",
+        "a_pid": "a_pid2 eng",
+        "compression": "compression2",
+        "url": "url2",
+        "enc": "enc2",
+        "package": "package2",
+        "res": "res2"
+      },
+      {
+        "sid": "sid3",
+        "type": "R",
+        "name": "Radio-Channel-eng",
+        "v_pid": "v_pid3",
+        "a_pid": "a_pid3 eng",
+        "compression": "compression3",
+        "url": "url3",
+        "enc": "enc3",
+        "package": "package3",
+        "res": "res3"
+      }
+    ]
+  }
+]
