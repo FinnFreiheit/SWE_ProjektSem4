@@ -54,8 +54,8 @@ public class TransponderAnzahlSender extends SuperAggregat implements AggregatSt
                     tvChannelCount += 1;
                 }
             }
-            channelCountString.add(radioChannelCount + " Channel des Types Radio");
-            channelCountString.add(tvChannelCount + " Channel des Types TV");
+            channelCountString.add("Radiosender:"+ radioChannelCount);
+            channelCountString.add("Fehrnsehsender:" + tvChannelCount);
 
             mapChannelCount.put(satelliteString, channelCountString);
         }

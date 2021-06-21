@@ -70,10 +70,5 @@ public abstract class SuperAggregat
         this.information.setSatellitesPath(satellitesPath);
     }
 
-    public void setSatellitesAndChannelsInfo()
-    {
-        this.satellitesAndChannelsInfo =
-                new CollectSatellitesAndChannelsInformation(this.information.getSatellitesPath());
-    }
 
 }
