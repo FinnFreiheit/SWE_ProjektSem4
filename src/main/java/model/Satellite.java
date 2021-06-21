@@ -69,11 +69,11 @@ public class Satellite implements Comparable<Satellite>{
 
 	/**
 	 * Erzeugt ein String aus einem Satellitenobjekt.
-	 * key:value,key:value,.....,key:value
+	 * key|value,key|value,.....,key|value
 	 * @return String
 	 */
 	public String toString(){
-   		return String.format("sat:%s,orbital:%s,pol:%s,freq:%s,sym:%s",
+   		return String.format("sat|%s,orbital|%s,pol|%s,freq|%s,sym|%s",
 							 this.sat, this.orbital, this.pol, this.freq, this.sym);
 	}
 
@@ -221,13 +221,13 @@ public class Satellite implements Comparable<Satellite>{
 		/**
 		 * Erzeugt ein String aus einem Channelobjekt
 		 *
-		 * key:value,key:value.....
+		 * key|value,key|value,.....,key|value
 		 *
 		 * @return String
 		 */
 		public String toString()
 		{
-			return String.format("name:%s,a_pid:%s,res:%s,url:%s,sid:%s,v_pid:%s,packge:%s,type:%s,enc:%s," +
+			return String.format("name|%s,a_pid|%s,res|%s,url|%s,sid|%s,v_pid|%s,packge|%s,type|%s,enc|%s," +
 										 "compression:%s", this.name,this.a_pid , this.res, this.url, this.sid,
 								 this.v_pid, this.packge, this.type, this.enc, this.compression);
 		}
