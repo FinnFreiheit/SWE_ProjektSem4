@@ -1,9 +1,9 @@
 
 # SWE Projekt
- im folgenden Projekt wird eine JSON-Datei mit Satelliten-Informationen eingelsen und aggregiert. Zum Aggregieren stehen 
- zwei Klassen zur verfügung. In der Klasse DeutscheTVSender werden alle Satelliten zusammengetragen, die deutschsprachige 
+ im folgenden Projekt wird eine JSON-Datei mit Satelliten-Informationen eingelesen und aggregiert. Zum Aggregieren stehen 
+ zwei Klassen zur Verfügung. In der Klasse DeutscheTVSender werden alle Satelliten zusammengetragen, die deutschsprachige 
  TV-Sender ausstrahlen. 
- In der Klasse TransponderAnzahlSender zählt, wie viele TV- und Radiosender der Satellit mit dem Namen `ABS-2A` verfügt. 
+Die Klasse TransponderAnzahlSender zählt, wie viele TV- und Radiosender der Satellit mit dem Namen `ABS-2A` verfügt. 
  
  Neben den Klassen zur Aggregation, verfügt das Projekt auch Klassen zur Ausgabe der Aggregation. Die Klasse `OutputGUI` 
  gibt die Aggregierten Satelliten auf einer grafischen Oberfläche aus.
@@ -39,3 +39,9 @@
 
 Über die Config-Datei kann die verwendete Aggregation und Ausgabeklasse angegeben werden, sowie der Pfad zur Satelliten-Datei. 
 Die Config-Datei darf nicht verschoben oder umbenannt werden. 
+
+# Stile 
+
+Das Projekt ist in Model-View-Controller aufgeteilt. 
+Doppelter Code wurde unteranderem durch die Verwendung der Abstracten-Klasse SuperAggregat vermieden. 
+Durch die Designpattern Stategy und Factory ist das Projekt beiebig skalierbar. 
