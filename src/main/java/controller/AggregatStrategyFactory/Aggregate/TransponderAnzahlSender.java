@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
-* Implementierung des Aggregierens von Radio Sendern von Transponern eines Satelliten.
+* Implementierung des Aggregierens von Radio Sendern von Transpondern eines Satelliten.
 * Das Ergebnis wird in eine Map gespeichert
  */
 public class TransponderAnzahlSender extends SuperAggregat implements AggregatStrategy
