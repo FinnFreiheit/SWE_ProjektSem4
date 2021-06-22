@@ -64,7 +64,9 @@ public class OutputJSON implements AusgabeStrategy {
             satString.append("]},");
             stringBuilder.append(satString);
         }
-        stringBuilder.setLength(stringBuilder.length() - 1);
+        if(stringBuilder.charAt(stringBuilder.length() - 1) == ','){
+            stringBuilder.setLength(stringBuilder.length() - 1);
+        }
         stringBuilder.append("]");
         return stringBuilder;
     }
