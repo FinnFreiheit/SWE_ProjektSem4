@@ -1,6 +1,6 @@
 [
   {
-    "satellitesPath" : "resources/satellites.json",
+    "satellitesPath" : "src/test/java/org/Aequivalenzklasse_fullJSON/testResources/testSatellites.json",
     "aggregat" : "controller.AggregatStrategyFactory.Aggregate.DeutscheTVSender",
     "output" : "view.outputMethods.OutputJSON"
   }

@@ -70,7 +70,7 @@ public class TestJson {
         outputJSON.outputMap(satelliteChannelMapString);
         try (BufferedReader br = new BufferedReader(new FileReader("resources/sortedSatellites.json"))) {
             String line = br.readLine();
-            assertTrue("Datei ist nicht leer", line.length() == 2);
+            assertTrue("Datei ist nicht leer", line.length() >= 2);
         } catch (FileNotFoundException e) {
             fail("Datei nicht gefunden");
         } catch (IOException e) {
