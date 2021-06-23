@@ -71,8 +71,8 @@ public class TestTransponderAnzahlSender
             List<String> anzahl = entry.getValue();
 
             assertEquals(2,anzahl.size());
-            assertEquals("Radiosender:1",anzahl.get(0));
-            assertEquals("Fehrnsehsender:2",anzahl.get(1));
+            assertEquals("Radiosender|1",anzahl.get(0));
+            assertEquals("Fehrnsehsender|2",anzahl.get(1));
         }
 
     }

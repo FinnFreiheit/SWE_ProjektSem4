@@ -9,16 +9,12 @@ import java.awt.*;
 import java.util.List;
 import java.util.Map;
 
-public class OutputGUI extends JFrame implements AusgabeStrategy
-{
-    String[] columnNames;
-    JPanel panel;
-    JScrollPane scrollPane;
+public class OutputGUI extends JFrame implements AusgabeStrategy {
 
-    public OutputGUI()
-    {
+    private final JPanel panel;
+    private JScrollPane scrollPane;
 
-        columnNames = new String[]{"Satellite", "Orbital", "Freq", "Sym", "Pol"};
+    public OutputGUI() {
         setTitle("Ausgabe JSON");
 
         setLayout(new BorderLayout());
@@ -26,22 +22,19 @@ public class OutputGUI extends JFrame implements AusgabeStrategy
 
         panel = new JPanel();
         panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        panel.setLayout(new BoxLayout(panel,1));
+        panel.setLayout(new BoxLayout(panel, 1));
 
     }
 
     @Override
-    public void outputMap(Map<String, List<String>> sortedList)
-    {
+    public void outputMap(Map<String, List<String>> sortedList) {
         JTextArea text = new JTextArea(generateString(sortedList));
         text.setEditable(false);
         scrollPane = new JScrollPane(text);
 
-        EventQueue.invokeLater(new Runnable()
-        {
+        EventQueue.invokeLater(new Runnable() {
             @Override
-            public void run()
-            {
+            public void run() {
                 panel.add(scrollPane);
                 add(panel);
                 pack();
@@ -51,26 +44,22 @@ public class OutputGUI extends JFrame implements AusgabeStrategy
         });
     }
 
-    public String generateString(Map<String, List<String>> stringListMap)
-    {
+    public String generateString(Map<String, List<String>> stringListMap) {
         StringBuilder mainString = new StringBuilder();
 
-        for(Map.Entry<String, List<String>> entry : stringListMap.entrySet())
-        {
+        for (Map.Entry<String, List<String>> entry : stringListMap.entrySet()) {
             String stringMod = entry.getKey().replace("|", ": ");
-            mainString.append(stringMod.replace(",",", "));
+            mainString.append(stringMod.replace(",", ", "));
             mainString.append("\n");
-            for( String string : entry.getValue())
-            {
-                String stringModChannel = string.replace("|",": ");
-                mainString.append("---\t").append(stringModChannel.replace(",",", "));
+            for (String string : entry.getValue()) {
+                String stringModChannel = string.replace("|", ": ");
+                mainString.append("---\t").append(stringModChannel.replace(",", ", "));
                 mainString.append("\n");
             }
         }
 
         return mainString.toString();
     }
-
 
 
 }

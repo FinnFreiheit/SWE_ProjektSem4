@@ -71,9 +71,9 @@ public class TestDeutscheTVSender
             String satellite = entry.getKey();
             List<String> channels = entry.getValue();
 
-            assertEquals("sat:ABS-2A,orbital:orbital,pol:pol,freq:freq,sym:sym", satellite);
+            assertEquals("sat|ABS-2A,orbital|orbital,pol|pol,freq|freq,sym|sym", satellite);
             assertEquals(1,channels.size());
-            assertEquals("name:TV-Channel-ger,a_pid:a_pid3 ger,res:res3,url:url3,sid:sid3,v_pid:v_pid3,packge:package3,type:TV,enc:enc3,compression:compression3", channels.get(0));
+            assertEquals("name|TV-Channel-ger,a_pid|a_pid3 ger,res|res3,url|url3,sid|sid3,v_pid|v_pid3,packge|package3,type|TV,enc|enc3,compression|compression3", channels.get(0));
         }
 
     }

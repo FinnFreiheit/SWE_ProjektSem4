@@ -8,8 +8,7 @@ import model.SatelliteProperty;
 import java.util.List;
 import java.util.Map;
 
-public abstract class SuperAggregat
-{
+public abstract class SuperAggregat {
     private final CollectConfigInformation information;
     private final CollectSatellitesAndChannelsInformation satellitesAndChannelsInfo;
 
@@ -17,16 +16,14 @@ public abstract class SuperAggregat
     private SatelliteProperty satelliteProperty;
 
 
-    public SuperAggregat()
-    {
+    public SuperAggregat() {
         this.information = new CollectConfigInformation();
         this.satellitesAndChannelsInfo =
                 new CollectSatellitesAndChannelsInformation(this.information.getSatellitesPath());
 
     }
 
-    public CollectConfigInformation getInformation()
-    {
+    public CollectConfigInformation getInformation() {
         return information;
     }
 
@@ -35,10 +32,9 @@ public abstract class SuperAggregat
      * Die Map wird das erstemal gefiltert. Nach einer Eigenschaft.
      *
      * @param Property die zu filternde Eigenschaft
-     * @param Value die Werte der zu filternden Eigenschaft
+     * @param Value    die Werte der zu filternden Eigenschaft
      */
-    public void firstFilter(String Property, String[] Value)
-    {
+    public void firstFilter(String Property, String[] Value) {
 
         this.satelliteProperty = new SatelliteProperty(Property, Value, this.satellitesAndChannelsInfo);
     }
@@ -48,14 +44,13 @@ public abstract class SuperAggregat
      * Die Satelliten und Channel Map wird nach einer Bestimmten Eigenschaft gefiltert.
      *
      * @param Property die zu filternde Eigenschaft
-     * @param Value die Werte der zu filternden Eigenschaft
+     * @param Value    die Werte der zu filternden Eigenschaft
      */
-    public void filter(String Property, String[] Value)
-    {
+    public void filter(String Property, String[] Value) {
         Map<Satellite, List<Satellite.Channel>> filteredSatellitesAndChannelsInfo =
                 this.satelliteProperty.getSatelliteMap();
         this.satelliteProperty = new SatelliteProperty(filteredSatellitesAndChannelsInfo, Property, Value,
-                                                       this.satellitesAndChannelsInfo);
+                this.satellitesAndChannelsInfo);
 
     }
 
@@ -64,8 +59,7 @@ public abstract class SuperAggregat
      *
      * @return satelliteProperty
      */
-    public SatelliteProperty getSatelliteProperty()
-    {
+    public SatelliteProperty getSatelliteProperty() {
         return satelliteProperty;
     }
 
@@ -74,7 +68,7 @@ public abstract class SuperAggregat
      *
      * @param satellitesPath Path to Satellite JSON
      */
-    public void setPathInformation(String satellitesPath){
+    public void setPathInformation(String satellitesPath) {
         this.information.setSatellitesPath(satellitesPath);
     }
 

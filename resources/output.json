@@ -1,0 +1,287 @@
+[
+  {
+    "sat": "ABS-2A",
+    "orbital": "75° E",
+    "pol": "H",
+    "freq": "10985",
+    "sym": "35007",
+    "channel": [
+      {
+        "Radiosender": "0"
+      },
+      {
+        "Fehrnsehsender": "16"
+      }
+    ]
+  },
+  {
+    "sat": "ABS-2A",
+    "orbital": "75° E",
+    "pol": "H",
+    "freq": "11045",
+    "sym": "35007",
+    "channel": [
+      {
+        "Radiosender": "0"
+      },
+      {
+        "Fehrnsehsender": "27"
+      }
+    ]
+  },
+  {
+    "sat": "ABS-2A",
+    "orbital": "75° E",
+    "pol": "V",
+    "freq": "11473",
+    "sym": "22500",
+    "channel": [
+      {
+        "Radiosender": "0"
+      },
+      {
+        "Fehrnsehsender": "18"
+      }
+    ]
+  },
+  {
+    "sat": "ABS-2A",
+    "orbital": "75° E",
+    "pol": "V",
+    "freq": "11490",
+    "sym": "7500",
+    "channel": [
+      {
+        "Radiosender": "0"
+      },
+      {
+        "Fehrnsehsender": "2"
+      }
+    ]
+  },
+  {
+    "sat": "ABS-2A",
+    "orbital": "75° E",
+    "pol": "V",
+    "freq": "11531",
+    "sym": "22000",
+    "channel": [
+      {
+        "Radiosender": "0"
+      },
+      {
+        "Fehrnsehsender": "7"
+      }
+    ]
+  },
+  {
+    "sat": "ABS-2A",
+    "orbital": "75° E",
+    "pol": "V",
+    "freq": "11559",
+    "sym": "22000",
+    "channel": [
+      {
+        "Radiosender": "0"
+      },
+      {
+        "Fehrnsehsender": "7"
+      }
+    ]
+  },
+  {
+    "sat": "ABS-2A",
+    "orbital": "75° E",
+    "pol": "V",
+    "freq": "11596",
+    "sym": "30000",
+    "channel": [
+      {
+        "Radiosender": "0"
+      },
+      {
+        "Fehrnsehsender": "4"
+      }
+    ]
+  },
+  {
+    "sat": "ABS-2A",
+    "orbital": "75° E",
+    "pol": "V",
+    "freq": "11605",
+    "sym": "43200",
+    "channel": [
+      {
+        "Radiosender": "5"
+      },
+      {
+        "Fehrnsehsender": "15"
+      }
+    ]
+  },
+  {
+    "sat": "ABS-2A",
+    "orbital": "75° E",
+    "pol": "V",
+    "freq": "11665",
+    "sym": "44922",
+    "channel": [
+      {
+        "Radiosender": "0"
+      },
+      {
+        "Fehrnsehsender": "20"
+      }
+    ]
+  },
+  {
+    "sat": "ABS-2A",
+    "orbital": "75° E",
+    "pol": "V",
+    "freq": "11740",
+    "sym": "45000",
+    "channel": [
+      {
+        "Radiosender": "0"
+      },
+      {
+        "Fehrnsehsender": "42"
+      }
+    ]
+  },
+  {
+    "sat": "ABS-2A",
+    "orbital": "75° E",
+    "pol": "V",
+    "freq": "11800",
+    "sym": "45000",
+    "channel": [
+      {
+        "Radiosender": "0"
+      },
+      {
+        "Fehrnsehsender": "9"
+      }
+    ]
+  },
+  {
+    "sat": "ABS-2A",
+    "orbital": "75° E",
+    "pol": "V",
+    "freq": "11860",
+    "sym": "45000",
+    "channel": [
+      {
+        "Radiosender": "0"
+      },
+      {
+        "Fehrnsehsender": "45"
+      }
+    ]
+  },
+  {
+    "sat": "ABS-2A",
+    "orbital": "75° E",
+    "pol": "V",
+    "freq": "11920",
+    "sym": "45000",
+    "channel": [
+      {
+        "Radiosender": "0"
+      },
+      {
+        "Fehrnsehsender": "51"
+      }
+    ]
+  },
+  {
+    "sat": "ABS-2A",
+    "orbital": "75° E",
+    "pol": "V",
+    "freq": "11980",
+    "sym": "45000",
+    "channel": [
+      {
+        "Radiosender": "0"
+      },
+      {
+        "Fehrnsehsender": "12"
+      }
+    ]
+  },
+  {
+    "sat": "ABS-2A",
+    "orbital": "75° E",
+    "pol": "V",
+    "freq": "12040",
+    "sym": "45000",
+    "channel": [
+      {
+        "Radiosender": "0"
+      },
+      {
+        "Fehrnsehsender": "26"
+      }
+    ]
+  },
+  {
+    "sat": "ABS-2A",
+    "orbital": "75° E",
+    "pol": "V",
+    "freq": "12100",
+    "sym": "45000",
+    "channel": [
+      {
+        "Radiosender": "0"
+      },
+      {
+        "Fehrnsehsender": "27"
+      }
+    ]
+  },
+  {
+    "sat": "ABS-2A",
+    "orbital": "75° E",
+    "pol": "V",
+    "freq": "12160",
+    "sym": "45000",
+    "channel": [
+      {
+        "Radiosender": "0"
+      },
+      {
+        "Fehrnsehsender": "29"
+      }
+    ]
+  },
+  {
+    "sat": "ABS-2A",
+    "orbital": "75° E",
+    "pol": "V",
+    "freq": "12533",
+    "sym": "44950",
+    "channel": [
+      {
+        "Radiosender": "0"
+      },
+      {
+        "Fehrnsehsender": "16"
+      }
+    ]
+  },
+  {
+    "sat": "ABS-2A",
+    "orbital": "75° E",
+    "pol": "V",
+    "freq": "12653",
+    "sym": "43000",
+    "channel": [
+      {
+        "Radiosender": "0"
+      },
+      {
+        "Fehrnsehsender": "18"
+      }
+    ]
+  }
+]

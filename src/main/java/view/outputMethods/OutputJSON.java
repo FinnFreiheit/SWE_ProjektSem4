@@ -22,7 +22,7 @@ public class OutputJSON implements AusgabeStrategy {
     public void outputMap(Map<String, List<String>> SortedList) {
         StringBuilder stringBuilderJson = buildJson(SortedList);
         try {
-            FileWriter file = new FileWriter("resources/sortedSatellites.json");
+            FileWriter file = new FileWriter("resources/output.json");
             file.write(String.valueOf(stringBuilderJson));
             file.close();
         } catch (IOException e) {
@@ -32,6 +32,7 @@ public class OutputJSON implements AusgabeStrategy {
 
     /**
      * wandelt einen String in ein JSON-Format um
+     *
      * @param toJsonString String der umgewandelt werden soll
      * @return String im JSON-Format
      */
@@ -39,13 +40,14 @@ public class OutputJSON implements AusgabeStrategy {
         StringBuilder stringbuilder = new StringBuilder("{\"");
         stringbuilder.append(toJsonString);
         stringbuilder = new StringBuilder(stringbuilder.toString().replace("|", "\":\"")
-                .replace(",", "\",\"").replace("\u0009"," "));
+                .replace(",", "\",\"").replace("\u0009", " "));
         stringbuilder.append("\"");
         return stringbuilder;
     }
 
     /**
      * Erzeugt aus den Channels und den Satelliten eine JSON-Ausgabe
+     *
      * @param SortedList Map die in ein JSON-Format gebracht werden soll
      * @return String im JSON-Format als StringBuilder
      */
@@ -64,7 +66,7 @@ public class OutputJSON implements AusgabeStrategy {
             satString.append("]},");
             stringBuilder.append(satString);
         }
-        if(stringBuilder.charAt(stringBuilder.length() - 1) == ','){
+        if (stringBuilder.charAt(stringBuilder.length() - 1) == ',') {
             stringBuilder.setLength(stringBuilder.length() - 1);
         }
         stringBuilder.append("]");

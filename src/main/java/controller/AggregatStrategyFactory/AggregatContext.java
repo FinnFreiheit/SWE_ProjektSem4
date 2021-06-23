@@ -1,26 +1,24 @@
 package controller.AggregatStrategyFactory;
 
 
-import model.Satellite;
-
 import java.util.List;
 import java.util.Map;
 
 /**
- * The type Aggregat context.
+ * Die Klasse ruft die Factory auf und instanziiert
+ * das Factory Objekt und führt die Strategie aus
  */
-public class AggregatContext
-{
+public class AggregatContext {
 
     private final AggregatStrategyFactory aggregatStrategyFactory = new AggregatStrategyFactory();
     private AggregatStrategy aggregatStrategy = aggregatStrategyFactory.getStrategy();
 
     /**
-     * Aggregat anwenden map.
+     * Strategiemethode des Aggregats wird ausgeführt
      *
      * @return the map
      */
-    public Map<String, List<String>> aggregatAnwenden(){
+    public Map<String, List<String>> aggregatAnwenden() {
         return aggregatStrategy.executeAlgorithm();
     }
 
@@ -29,7 +27,7 @@ public class AggregatContext
      *
      * @param sortierMethode the sortier methode
      */
-    public void setStrategy(AggregatStrategy sortierMethode){
+    public void setStrategy(AggregatStrategy sortierMethode) {
         this.aggregatStrategy = sortierMethode;
     }
 }

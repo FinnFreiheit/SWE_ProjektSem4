@@ -9,12 +9,11 @@ import java.util.Map;
 /**
  * Gekapseltes Sortierverhalten. Für jede Sortierung eine eigene Klasse, die dieses Interface implementiert.
  *
- * @see controller/AggregatStrategyFactory/Aggregate/DeutscheTVSender.java
  */
-public interface AggregatStrategy
-{
+public interface AggregatStrategy {
     /**
      * Die Methode implementiert das spezielle Sortierverfahren.
+     *
      * @return Das Ergebnis der Sortirung wird in eine Map: key=String, value=String Liste umgewandelt.
      * bei der Umwandlung kann die getStringMap() Methode aufgerufen werden.
      */
@@ -25,6 +24,7 @@ public interface AggregatStrategy
      * Channel Map. Diese Map, muss in ein (Sting: String Liste) Map umgewandelt werden.
      * Die Strings müssen folgende Struktur aufweisen. key:value,key:value,....,key:value
      * Die Struktur ist in der toString Methode der Satellite und Channel Klasse eingehlaten.
+     *
      * @param map die umzuwandelde Map
      * @return eine Map: key=String, value=Sting Liste.
      */

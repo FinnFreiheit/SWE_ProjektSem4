@@ -10,16 +10,15 @@ import view.AusgabeContext;
  * Das in der Config-Datei angegebene Aggregat wird ausgeführt.
  * Die in der Config-Datei angegebene Ausgabe wird genutzt um das ergebnis der Aggregierung anzuzeigen.
  */
-public class App
-{
+public class App {
     /**
      * Main-Methode der Applikation
+     *
      * @param args keine Parameterübergabe vorgesehen.
      */
-    public static void main( String[] args )
-    {
-    	AggregatContext aggregatContext = new AggregatContext();
-    	AusgabeContext ausgabeContext = new AusgabeContext();
-    	ausgabeContext.MapAusgabe(aggregatContext.aggregatAnwenden());
+    public static void main(String[] args) {
+        AggregatContext aggregatContext = new AggregatContext();
+        AusgabeContext ausgabeContext = new AusgabeContext();
+        ausgabeContext.MapAusgabe(aggregatContext.aggregatAnwenden());
     }
 }

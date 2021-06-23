@@ -6,8 +6,7 @@ import org.json.simple.JSONObject;
 /**
  * Klasse, die die Eigenschaften aus der Config-File verwaltet
  */
-public class CollectConfigInformation
-{
+public class CollectConfigInformation {
 
 
     private String satellitesPath;
@@ -15,17 +14,14 @@ public class CollectConfigInformation
     private String output;
 
 
-    public CollectConfigInformation()
-    {
+    public CollectConfigInformation() {
         JSONArray configJSONArray = ReadJSONFile.createJSONArrayListFromConfig("resources/config.json");
-        try
-        {
+        try {
             JSONObject configInfo = (JSONObject) configJSONArray.get(0);
             this.satellitesPath = (String) configInfo.get("satellitesPath");
             this.aggregat = (String) configInfo.get("aggregat");
             this.output = (String) configInfo.get("output");
-        } catch (NullPointerException e)
-        {
+        } catch (NullPointerException e) {
             e.printStackTrace();
         }
     }
@@ -35,8 +31,7 @@ public class CollectConfigInformation
      *
      * @return Pfad zur JSON
      */
-    public String getSatellitesPath()
-    {
+    public String getSatellitesPath() {
         return this.satellitesPath;
     }
 
@@ -45,8 +40,7 @@ public class CollectConfigInformation
      *
      * @return Aggregat
      */
-    public String getAggregat()
-    {
+    public String getAggregat() {
         return aggregat;
     }
 
@@ -55,17 +49,16 @@ public class CollectConfigInformation
      *
      * @return Output Format
      */
-    public String getOutput()
-    {
+    public String getOutput() {
         return output;
     }
 
     /**
      * Satellitenpfad setzen
+     *
      * @param satellitesPath neuer Pfad
      */
-    public void setSatellitesPath(String satellitesPath)
-    {
+    public void setSatellitesPath(String satellitesPath) {
         this.satellitesPath = satellitesPath;
     }
 }

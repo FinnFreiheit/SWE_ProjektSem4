@@ -9,7 +9,7 @@ Die Klasse TransponderAnzahlSender zählt, wie viele TV- und Radiosender der Sat
  Neben den Klassen zur Aggregation, verfügt das Projekt auch Klassen zur Ausgabe der Aggregation. Die Klasse `OutputGUI` 
  gibt die aggregierten Informationen auf einer grafischen Oberfläche aus.
  Die Klasse `OutputJSON` erstellt ein JSON-File mit den aggregierten Informationen und speichert die Datei unter 
- `resources/sortedSatellites.json`.
+ `resources/output.json`.
  
 ## Projekt erweitern
  

@@ -68,7 +68,7 @@ public class TestJson {
     public void testWrightToFile() {
         OutputJSON outputJSON = new OutputJSON();
         outputJSON.outputMap(satelliteChannelMapString);
-        try (BufferedReader br = new BufferedReader(new FileReader("resources/sortedSatellites.json"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("resources/output.json"))) {
             String line = br.readLine();
             assertTrue("Datei ist nicht leer", line.length() >= 2);
         } catch (FileNotFoundException e) {

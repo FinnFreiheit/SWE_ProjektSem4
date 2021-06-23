@@ -9,7 +9,6 @@ import java.util.Map;
 /**
  * Gekapseltes Ausgabeverhalten. Für jede Ausgabe gibt eine eigene Klasse, die dieses Interface implementiert.
  */
-public interface AusgabeStrategy
-{
+public interface AusgabeStrategy {
     public void outputMap(Map<String, List<String>> map);
 }

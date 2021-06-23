@@ -1,7 +1,7 @@
 [
   {
-    "satellitesPath" : "src/test/java/org/Aequivalenzklasse_emptyJSON/testResources/testSatellites.json",
-    "aggregat" : "controller.AggregatStrategyFactory.Aggregate.DeutscheTVSender",
+    "satellitesPath" : "resources/satellites.json",
+    "aggregat" : "controller.AggregatStrategyFactory.Aggregate.TransponderAnzahlSender",
     "output" : "view.outputMethods.OutputJSON"
   }
 ]
