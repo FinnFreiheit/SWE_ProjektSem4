@@ -26,7 +26,7 @@ public class TransponderAnzahlSender extends SuperAggregat implements AggregatSt
      * Legt das zweite zu filternde Attribute fest und gibt die
      * gefilterte Map zurück
      *
-     * @return gefilterte Satelliten Map mit Radio Sendern von Transponern eines Satelliten
+     * @return gefilterte Satelliten Map mit Radio Sendern von Transpondern eines Satelliten
      */
     @Override
     public Map<String, List<String>> executeAlgorithm()
@@ -35,6 +35,13 @@ public class TransponderAnzahlSender extends SuperAggregat implements AggregatSt
         return getStringMap(getSatelliteProperty().getSatelliteMap());
     }
 
+    /**
+     * wandelt eine Map<Satellite, List<Satellite.Channel>> in eine Map<String, List<String>> mit Strings
+     * in Format key:value um
+     *
+     * @param map die umzuwandelnde Map
+     * @return StringMap
+     */
     @Override
     public Map<String, List<String>> getStringMap(Map<Satellite, List<Satellite.Channel>> map)
     {

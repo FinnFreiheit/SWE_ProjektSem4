@@ -18,7 +18,7 @@ public interface AggregatStrategy
      * @return Das Ergebnis der Sortirung wird in eine Map: key=String, value=String Liste umgewandelt.
      * bei der Umwandlung kann die getStringMap() Methode aufgerufen werden.
      */
-    public Map<String, List<String>> executeAlgorithm();
+    Map<String, List<String>> executeAlgorithm();
 
     /**
      * Der Nutzer implementiert eine Sortiermethode. Das Ergebnis der Sortierung befindet sich in einer Satelliten und
@@ -28,5 +28,5 @@ public interface AggregatStrategy
      * @param map die umzuwandelde Map
      * @return eine Map: key=String, value=Sting Liste.
      */
-    public  Map<String, List<String>> getStringMap(Map<Satellite, List<Satellite.Channel>> map);
+    Map<String, List<String>> getStringMap(Map<Satellite, List<Satellite.Channel>> map);
 }

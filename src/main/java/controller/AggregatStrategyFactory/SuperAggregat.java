@@ -10,8 +10,8 @@ import java.util.Map;
 
 public abstract class SuperAggregat
 {
-    private CollectConfigInformation information;
-    private CollectSatellitesAndChannelsInformation satellitesAndChannelsInfo;
+    private final CollectConfigInformation information;
+    private final CollectSatellitesAndChannelsInformation satellitesAndChannelsInfo;
 
 
     private SatelliteProperty satelliteProperty;
@@ -33,6 +33,7 @@ public abstract class SuperAggregat
 
     /**
      * Die Map wird das erstemal gefiltert. Nach einer Eigenschaft.
+     *
      * @param Property die zu filternde Eigenschaft
      * @param Value die Werte der zu filternden Eigenschaft
      */
@@ -45,6 +46,7 @@ public abstract class SuperAggregat
 
     /**
      * Die Satelliten und Channel Map wird nach einer Bestimmten Eigenschaft gefiltert.
+     *
      * @param Property die zu filternde Eigenschaft
      * @param Value die Werte der zu filternden Eigenschaft
      */
@@ -57,6 +59,11 @@ public abstract class SuperAggregat
 
     }
 
+    /**
+     * Get Satellite Property
+     *
+     * @return satelliteProperty
+     */
     public SatelliteProperty getSatelliteProperty()
     {
         return satelliteProperty;
@@ -64,7 +71,8 @@ public abstract class SuperAggregat
 
     /**
      * Aendert den Dateiphad der auszuwertenden Satelliten JSON-Datei.
-     * @param satellitesPath
+     *
+     * @param satellitesPath Path to Satellite JSON
      */
     public void setPathInformation(String satellitesPath){
         this.information.setSatellitesPath(satellitesPath);

@@ -18,6 +18,9 @@ public class SatelliteProperty
         this.satelliteMap = createNewMap(satelliteAndChannelInfo.createSatelliteChannelsMap(), satelliteAndChannelInfo);
     }
 
+
+    //Überladener Konstruktor
+
     public SatelliteProperty(Map<Satellite, List<Satellite.Channel>> baseMap, String property, String[] values,
              CollectSatellitesAndChannelsInformation satellitesAndChannelsInformation)
     {

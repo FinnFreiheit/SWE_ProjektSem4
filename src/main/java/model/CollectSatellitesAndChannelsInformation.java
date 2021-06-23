@@ -40,11 +40,6 @@ public class CollectSatellitesAndChannelsInformation {
 		return langMap;
 	}
 
-	/*
-	 * language kann sein: "ger", "spa", "ukr", "chi", 
-	 */
-
-
 	/**
 	 * Erstellt ein Array aus allen Satelliten.
 	 *
