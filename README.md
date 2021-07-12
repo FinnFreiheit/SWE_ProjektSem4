@@ -109,7 +109,7 @@ Durch die Designpattern Stategy und Factory ist das Projekt beiebig skalierbar.
 
 Das Projekt wurde bearbeitet von:
 
-    -Finn Freiheit,         Matr.Nr: 2533282,   Email: inf19044@lehre.dhbw-stuttgart.de
-    -Armin Vosoghi Marand,  Matr.Nr: 9747848,   Email: inf19218@lehre.dhbw-stuttgart.de
-    -Sarah Kröll,           Matr.Nr: 9875642,   Email: inf19221@lehre.dhbw-stuttgart.de
+    -Finn Freiheit,         
+    -Armin Vosoghi Marand,  
+    -Sarah Kröll,           
 
